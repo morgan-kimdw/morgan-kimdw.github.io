@@ -1,18 +1,18 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'moel-kim.github.io',
+  title: 'morgan-kimdw.github.io',
   author: 'Moel',
   headerTitle: 'Moel',
   description: 'Lesson and Learn',
   language: 'ko-KR',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://moel-kim.github.io/',
-  siteRepo: 'https://github.com/moel-kim/moel-kim.github.io',
+  siteUrl: 'https://morgan-kimdw.github.io',
+  siteRepo: 'https://github.com/morgan-kimdw/morgan-kimdw.github.io',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/avatar.jpeg`,
   // mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'moel.kimdw@gmail.com',
-  github: 'https://github.com/moel-kim',
+  github: 'https://github.com/morgan-kimdw',
   // x: 'https://twitter.com/x',
   // twitter: 'https://twitter.com/Twitter',
   // facebook: 'https://facebook.com',
