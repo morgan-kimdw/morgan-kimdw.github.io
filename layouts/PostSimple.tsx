@@ -8,20 +8,24 @@ import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
+import ArticleFooter from '@/components/ArticleFooter'
+import { isCommentsAvailable } from '@/lib/comments/config.mjs'
 
 interface LayoutProps {
   content: CoreContent<Blog>
   children: ReactNode
   next?: { path: string; title: string }
   prev?: { path: string; title: string }
+  related?: CoreContent<Blog>[]
 }
 
-export default function PostLayout({ content, next, prev, children }: LayoutProps) {
-  const { path, slug, date, title } = content
+export default function PostLayout({ content, next, prev, related, children }: LayoutProps) {
+  const { path, slug, date, title, summary, readingTime, comments } = content
+  const commentsEnabled = isCommentsAvailable(siteMetadata.comments, comments !== false)
 
   return (
     <SectionContainer>
-      <ScrollTopAndComment />
+      <ScrollTopAndComment commentsEnabled={commentsEnabled} />
       <article>
         <div>
           <header>
@@ -37,17 +41,20 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
               <div>
                 <PageTitle>{title}</PageTitle>
               </div>
+              {summary && (
+                <p className="mx-auto max-w-3xl pt-4 text-lg leading-8 text-gray-600 dark:text-gray-300">
+                  {summary}
+                </p>
+              )}
+              <p className="pt-3 text-sm text-gray-500 dark:text-gray-400">{readingTime?.text}</p>
             </div>
           </header>
           <div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 xl:divide-y-0 dark:divide-gray-700">
             <div className="divide-y divide-gray-200 xl:col-span-3 xl:row-span-2 xl:pb-0 dark:divide-gray-700">
               <div className="prose dark:prose-invert max-w-none pt-10 pb-8">{children}</div>
+              <ArticleFooter related={related} />
             </div>
-            {siteMetadata.comments && (
-              <div className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300" id="comment">
-                <Comments slug={slug} />
-              </div>
-            )}
+            {commentsEnabled && <Comments slug={slug} />}
             <footer>
               <div className="flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base">
                 {prev && prev.path && (

@@ -8,7 +8,8 @@ import type { Blog } from 'contentlayer/generated'
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
-import tagData from 'app/tag-data.json'
+import tagData from '@/app/tag-data.json'
+import { getPaginationBasePath } from '@/lib/pagination.mjs'
 
 interface PaginationProps {
   totalPages: number
@@ -23,13 +24,7 @@ interface ListLayoutProps {
 
 function Pagination({ totalPages, currentPage }: PaginationProps) {
   const pathname = usePathname()
-  const segments = pathname.split('/')
-  const lastSegment = segments[segments.length - 1]
-  const basePath = pathname
-    .replace(/^\//, '') // Remove leading slash
-    .replace(/\/page\/\d+$/, '') // Remove any trailing /page
-  console.log(pathname)
-  console.log(basePath)
+  const basePath = getPaginationBasePath(pathname)
   const prevPage = currentPage - 1 > 0
   const nextPage = currentPage + 1 <= totalPages
 
@@ -38,7 +33,7 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
       <nav className="flex justify-between">
         {!prevPage && (
           <button className="cursor-auto disabled:opacity-50" disabled={!prevPage}>
-            Previous
+            이전
           </button>
         )}
         {prevPage && (
@@ -46,20 +41,20 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
             href={currentPage - 1 === 1 ? `/${basePath}/` : `/${basePath}/page/${currentPage - 1}`}
             rel="prev"
           >
-            Previous
+            이전
           </Link>
         )}
         <span>
-          {currentPage} of {totalPages}
+          {currentPage} / {totalPages}
         </span>
         {!nextPage && (
           <button className="cursor-auto disabled:opacity-50" disabled={!nextPage}>
-            Next
+            다음
           </button>
         )}
         {nextPage && (
           <Link href={`/${basePath}/page/${currentPage + 1}`} rel="next">
-            Next
+            다음
           </Link>
         )}
       </nav>
@@ -77,42 +72,82 @@ export default function ListLayoutWithTags({
   const tagCounts = tagData as Record<string, number>
   const tagKeys = Object.keys(tagCounts)
   const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a])
+  const activeTag = pathname.startsWith('/tags/')
+    ? decodeURI(pathname.split('/tags/')[1].split('/page/')[0])
+    : null
 
   const displayPosts = initialDisplayPosts.length > 0 ? initialDisplayPosts : posts
 
   return (
     <>
-      <div>
-        <div className="pt-6 pb-6">
-          <h1 className="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:hidden sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 dark:text-gray-100">
+      <div className="pb-12">
+        <header className="border-b border-gray-300 py-14 sm:py-20 dark:border-gray-700">
+          <p className="text-primary-600 dark:text-primary-400 text-xs font-semibold tracking-[0.16em] uppercase">
+            Engineering archive
+          </p>
+          <h1 className="mt-3 text-4xl font-semibold text-gray-950 sm:text-6xl dark:text-white">
             {title}
           </h1>
-        </div>
-        <div className="flex sm:space-x-24">
-          <div className="hidden h-full max-h-screen max-w-[280px] min-w-[280px] flex-wrap overflow-auto rounded-sm bg-gray-50 pt-5 shadow-md sm:flex dark:bg-gray-900/70 dark:shadow-gray-800/40">
-            <div className="px-6 py-4">
+          <p className="mt-5 max-w-2xl text-lg leading-8 text-gray-600 dark:text-gray-300">
+            제품을 만들고 운영하며 발견한 문제, 선택의 이유, 실패에서 바뀐 생각을 기록합니다.
+          </p>
+        </header>
+        <nav
+          aria-label="주제 필터"
+          className="no-scrollbar flex gap-2 overflow-x-auto border-b border-gray-300 py-5 lg:hidden dark:border-gray-700"
+        >
+          <Link
+            href="/blog"
+            className={`shrink-0 border px-4 py-2 text-sm font-semibold ${
+              pathname.startsWith('/blog')
+                ? 'border-primary-600 bg-primary-600 text-white'
+                : 'border-gray-300 dark:border-gray-700'
+            }`}
+          >
+            전체
+          </Link>
+          {sortedTags.map((tag) => (
+            <Link
+              key={tag}
+              href={`/tags/${slug(tag)}`}
+              className={`shrink-0 border px-4 py-2 text-sm font-semibold ${
+                activeTag === slug(tag)
+                  ? 'border-primary-600 bg-primary-600 text-white'
+                  : 'border-gray-300 dark:border-gray-700'
+              }`}
+            >
+              {tag}
+            </Link>
+          ))}
+        </nav>
+        <div className="grid gap-12 lg:grid-cols-12">
+          <aside className="hidden pt-10 lg:col-span-3 lg:block">
+            <div className="sticky top-6">
+              <p className="mb-5 text-xs font-semibold tracking-[0.14em] text-gray-500 uppercase dark:text-gray-400">
+                Topics
+              </p>
               {pathname.startsWith('/blog') ? (
-                <h3 className="text-primary-500 font-bold uppercase">All Posts</h3>
+                <h2 className="text-primary-600 dark:text-primary-400 font-semibold">모든 글</h2>
               ) : (
                 <Link
-                  href={`/blog`}
-                  className="hover:text-primary-500 dark:hover:text-primary-500 font-bold text-gray-700 uppercase dark:text-gray-300"
+                  href="/blog"
+                  className="hover:text-primary-600 dark:hover:text-primary-400 font-semibold text-gray-700 dark:text-gray-300"
                 >
-                  All Posts
+                  모든 글
                 </Link>
               )}
-              <ul>
+              <ul className="mt-4">
                 {sortedTags.map((t) => {
                   return (
-                    <li key={t} className="my-3">
-                      {decodeURI(pathname.split('/tags/')[1]) === slug(t) ? (
-                        <h3 className="text-primary-500 inline px-3 py-2 text-sm font-bold uppercase">
+                    <li key={t}>
+                      {activeTag === slug(t) ? (
+                        <h3 className="border-primary-600 text-primary-600 dark:text-primary-400 block border-l-2 py-2 pl-3 text-sm font-semibold">
                           {`${t} (${tagCounts[t]})`}
                         </h3>
                       ) : (
                         <Link
                           href={`/tags/${slug(t)}`}
-                          className="hover:text-primary-500 dark:hover:text-primary-500 px-3 py-2 text-sm font-medium text-gray-500 uppercase dark:text-gray-300"
+                          className="block border-l-2 border-transparent py-2 pl-3 text-sm font-medium text-gray-500 hover:border-gray-400 hover:text-gray-950 dark:text-gray-400 dark:hover:text-white"
                           aria-label={`View posts tagged ${t}`}
                         >
                           {`${t} (${tagCounts[t]})`}
@@ -123,34 +158,39 @@ export default function ListLayoutWithTags({
                 })}
               </ul>
             </div>
-          </div>
-          <div>
-            <ul>
+          </aside>
+          <div className="lg:col-span-9">
+            <ul className="divide-y divide-gray-300 dark:divide-gray-700">
               {displayPosts.map((post) => {
                 const { path, date, title, summary, tags } = post
                 return (
-                  <li key={path} className="py-5">
-                    <article className="flex flex-col space-y-2 xl:space-y-0">
-                      <dl>
+                  <li key={path} className="py-8 sm:py-10">
+                    <article className="grid gap-4 sm:grid-cols-12">
+                      <dl className="sm:col-span-3">
                         <dt className="sr-only">Published on</dt>
-                        <dd className="text-base leading-6 font-medium text-gray-500 dark:text-gray-400">
+                        <dd className="text-sm font-semibold text-gray-500 dark:text-gray-400">
                           <time dateTime={date} suppressHydrationWarning>
                             {formatDate(date, siteMetadata.locale)}
                           </time>
                         </dd>
                       </dl>
-                      <div className="space-y-3">
+                      <div className="sm:col-span-9">
                         <div>
-                          <h2 className="text-2xl leading-8 font-bold tracking-tight">
-                            <Link href={`/${path}`} className="text-gray-900 dark:text-gray-100">
+                          <h2 className="text-2xl leading-snug font-semibold sm:text-3xl">
+                            <Link
+                              href={`/${path}`}
+                              className="hover:text-primary-600 dark:hover:text-primary-400 text-gray-950 dark:text-white"
+                            >
                               {title}
                             </Link>
                           </h2>
-                          <div className="flex flex-wrap">
-                            {tags?.map((tag) => <Tag key={tag} text={tag} />)}
+                          <div className="mt-3 flex flex-wrap">
+                            {tags?.map((tag) => (
+                              <Tag key={tag} text={tag} />
+                            ))}
                           </div>
                         </div>
-                        <div className="prose max-w-none text-gray-500 dark:text-gray-400">
+                        <div className="mt-4 max-w-2xl leading-7 text-gray-600 dark:text-gray-300">
                           {summary}
                         </div>
                       </div>

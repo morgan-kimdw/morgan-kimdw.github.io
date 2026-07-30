@@ -20,6 +20,7 @@ public/sitemap.xml
 
 # production
 /build
+/var/
 *.xml
 
 # rss feed
@@ -46,3 +47,6 @@ yarn-error.log*
 
 # Contentlayer
 .contentlayer
+
+# TypeScript incremental build state
+*.tsbuildinfo

@@ -1,0 +1,63 @@
+import type { Blog } from 'contentlayer/generated'
+import type { CoreContent } from 'pliny/utils/contentlayer'
+import { formatDate } from 'pliny/utils/formatDate'
+
+import Link from '@/components/Link'
+import siteMetadata from '@/data/siteMetadata'
+
+interface StoryCardProps {
+  post: CoreContent<Blog>
+  featured?: boolean
+}
+
+export default function StoryCard({ post, featured = false }: StoryCardProps) {
+  return (
+    <article
+      className={`group flex h-full flex-col justify-between border-t border-gray-300 py-6 dark:border-gray-700 ${
+        featured ? 'lg:pr-12' : ''
+      }`}
+    >
+      <div>
+        <div className="mb-6 flex items-center gap-3 text-xs font-semibold tracking-[0.14em] text-gray-500 uppercase dark:text-gray-400">
+          <time dateTime={post.date}>{formatDate(post.date, siteMetadata.locale)}</time>
+          {post.tags?.[0] && (
+            <>
+              <span aria-hidden="true">·</span>
+              <span>{post.tags[0]}</span>
+            </>
+          )}
+        </div>
+        <h3
+          className={
+            featured
+              ? 'max-w-3xl text-3xl leading-tight font-semibold text-gray-950 sm:text-4xl lg:text-5xl dark:text-white'
+              : 'text-2xl leading-snug font-semibold text-gray-950 dark:text-white'
+          }
+        >
+          <Link
+            href={`/${post.path}`}
+            className="group-hover:text-primary-600 dark:group-hover:text-primary-400"
+          >
+            {post.title}
+          </Link>
+        </h3>
+        {post.summary && (
+          <p
+            className={`mt-4 leading-7 text-gray-600 dark:text-gray-300 ${
+              featured ? 'max-w-2xl text-lg' : 'text-base'
+            }`}
+          >
+            {post.summary}
+          </p>
+        )}
+      </div>
+      <Link
+        href={`/${post.path}`}
+        className="text-primary-600 dark:text-primary-400 mt-8 inline-flex min-h-11 items-center gap-2 self-start text-sm font-semibold"
+        aria-label={`${post.title} 읽기`}
+      >
+        글 읽기 <span aria-hidden="true">↗</span>
+      </Link>
+    </article>
+  )
+}

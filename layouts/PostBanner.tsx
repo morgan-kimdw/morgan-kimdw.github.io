@@ -9,42 +9,50 @@ import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
+import ArticleFooter from '@/components/ArticleFooter'
+import { isCommentsAvailable } from '@/lib/comments/config.mjs'
 
 interface LayoutProps {
   content: CoreContent<Blog>
   children: ReactNode
   next?: { path: string; title: string }
   prev?: { path: string; title: string }
+  related?: CoreContent<Blog>[]
 }
 
-export default function PostMinimal({ content, next, prev, children }: LayoutProps) {
-  const { slug, title, images } = content
-  const displayImage =
-    images && images.length > 0 ? images[0] : 'https://picsum.photos/seed/picsum/800/400'
+export default function PostMinimal({ content, next, prev, related, children }: LayoutProps) {
+  const { slug, title, images, summary, readingTime, comments } = content
+  const displayImage = images?.[0]
+  const commentsEnabled = isCommentsAvailable(siteMetadata.comments, comments !== false)
 
   return (
     <SectionContainer>
-      <ScrollTopAndComment />
+      <ScrollTopAndComment commentsEnabled={commentsEnabled} />
       <article>
         <div>
           <div className="space-y-1 pb-10 text-center dark:border-gray-700">
-            <div className="w-full">
-              <Bleed>
-                <div className="relative aspect-2/1 w-full">
-                  <Image src={displayImage} alt={title} fill className="object-cover" />
-                </div>
-              </Bleed>
-            </div>
+            {displayImage && (
+              <div className="w-full">
+                <Bleed>
+                  <div className="relative aspect-2/1 w-full">
+                    <Image src={displayImage} alt={title} fill className="object-cover" />
+                  </div>
+                </Bleed>
+              </div>
+            )}
             <div className="relative pt-10">
               <PageTitle>{title}</PageTitle>
+              {summary && (
+                <p className="mx-auto mt-4 max-w-3xl text-lg leading-8 text-gray-600 dark:text-gray-300">
+                  {summary}
+                </p>
+              )}
+              <p className="mt-3 text-sm text-gray-500 dark:text-gray-400">{readingTime?.text}</p>
             </div>
           </div>
           <div className="prose dark:prose-invert max-w-none py-4">{children}</div>
-          {siteMetadata.comments && (
-            <div className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300" id="comment">
-              <Comments slug={slug} />
-            </div>
-          )}
+          <ArticleFooter related={related} />
+          {commentsEnabled && <Comments slug={slug} />}
           <footer>
             <div className="flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base">
               {prev && prev.path && (

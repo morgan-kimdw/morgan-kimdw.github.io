@@ -1,4 +1,4 @@
-import { PageVariants } from 'animations/page-var'
+import { PageVariants } from '@/animations/page-var'
 import type { FC, PropsWithChildren, ReactNode } from 'react'
 import * as motion from 'motion/react-client'
 
@@ -9,7 +9,7 @@ const Transition: FC<PropsWithChildren> = ({ children }) => {
       initial="hidden"
       animate="enter"
       exit="exit"
-      transition={{ type: 'linear' }}
+      transition={{ type: 'tween', ease: 'linear' }}
     >
       {children}
     </motion.div>

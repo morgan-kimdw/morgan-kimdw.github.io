@@ -1,4 +1,4 @@
-import 'css/tailwind.css'
+import '@/css/tailwind.css'
 import 'pliny/search/algolia.css'
 import 'remark-github-blockquote-alert/alert.css'
 
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     url: './',
     siteName: siteMetadata.title,
     images: [siteMetadata.socialBanner],
-    locale: 'en_US',
+    locale: 'ko_KR',
     type: 'website',
   },
   alternates: {
@@ -94,13 +94,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
-      <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-gray-950 dark:text-white">
+      <body className="bg-paper text-ink dark:bg-ink pl-[calc(100vw-100%)] antialiased dark:text-white">
+        <a
+          href="#main-content"
+          className="sr-only z-100 bg-white px-4 py-3 font-semibold text-gray-950 focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+        >
+          본문으로 건너뛰기
+        </a>
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
           <SectionContainer>
             <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
               <Header />
-              <main className="mb-auto">{children}</main>
+              <main id="main-content" className="mb-auto" tabIndex={-1}>
+                {children}
+              </main>
             </SearchProvider>
             <Footer />
           </SectionContainer>

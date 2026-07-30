@@ -23,11 +23,13 @@ import rehypeCitation from 'rehype-citation'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypePresetMinify from 'rehype-preset-minify'
 import siteMetadata from './data/siteMetadata'
+import { company } from './data/company'
+import { getPublishedPosts } from './lib/content/public-content.mjs'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js'
+import type { MDXDocument } from 'pliny/utils/contentlayer.js'
 import prettier from 'prettier'
 
 const root = process.cwd()
-const isProduction = process.env.NODE_ENV === 'production'
 
 // heroicon mini link
 const icon = fromHtmlIsomorphic(
@@ -59,13 +61,47 @@ const computedFields: ComputedFields = {
   toc: { type: 'json', resolve: (doc) => extractTocHeadings(doc.body.raw) },
 }
 
+const jobStatuses = ['open', 'closed'] as const
+const employmentTypes = ['FULL_TIME', 'PART_TIME', 'CONTRACTOR', 'INTERN'] as const
+const workingModes = ['ONSITE', 'HYBRID', 'REMOTE'] as const
+
+function assertAllowedValue(field: string, value: string, allowedValues: readonly string[]) {
+  if (!allowedValues.includes(value)) {
+    throw new Error(`${field} must be one of: ${allowedValues.join(', ')}`)
+  }
+}
+
+function assertNonEmptyList(field: string, value: unknown) {
+  if (
+    !Array.isArray(value) ||
+    value.length === 0 ||
+    value.some((item) => typeof item !== 'string')
+  ) {
+    throw new Error(`${field} must be a non-empty list of strings`)
+  }
+}
+
+function assertApplicationUrl(value: string) {
+  if (!value.startsWith('mailto:') && !value.startsWith('https://')) {
+    throw new Error('applyUrl must be a mailto: or https:// URL')
+  }
+}
+
 /**
  * Count the occurrences of all tags across blog posts and write to json file
  */
-async function createTagCount(allBlogs) {
+type GeneratedBlog = MDXDocument & {
+  date: string
+  draft?: boolean
+  slug: string
+  tags?: string[]
+  title: string
+}
+
+async function createTagCount(allBlogs: GeneratedBlog[]) {
   const tagCount: Record<string, number> = {}
-  allBlogs.forEach((file) => {
-    if (file.tags && (!isProduction || file.draft !== true)) {
+  getPublishedPosts(allBlogs).forEach((file) => {
+    if (file.tags) {
       file.tags.forEach((tag) => {
         const formattedTag = slug(tag)
         if (formattedTag in tagCount) {
@@ -76,18 +112,23 @@ async function createTagCount(allBlogs) {
       })
     }
   })
-  const formatted = await prettier.format(JSON.stringify(tagCount, null, 2), { parser: 'json' })
+  const sortedTagCount = Object.fromEntries(
+    Object.entries(tagCount).sort(([left], [right]) => left.localeCompare(right))
+  )
+  const formatted = await prettier.format(JSON.stringify(sortedTagCount, null, 2), {
+    parser: 'json',
+  })
   writeFileSync('./app/tag-data.json', formatted)
 }
 
-function createSearchIndex(allBlogs) {
+function createSearchIndex(allBlogs: GeneratedBlog[]) {
   if (
     siteMetadata?.search?.provider === 'kbar' &&
     siteMetadata.search.kbarConfig.searchDocumentsPath
   ) {
     writeFileSync(
       `public/${path.basename(siteMetadata.search.kbarConfig.searchDocumentsPath)}`,
-      JSON.stringify(allCoreContent(sortPosts(allBlogs)))
+      JSON.stringify(allCoreContent(sortPosts(getPublishedPosts(allBlogs))))
     )
     console.log('Local search index generated...')
   }
@@ -109,6 +150,11 @@ export const Blog = defineDocumentType(() => ({
     layout: { type: 'string' },
     bibliography: { type: 'string' },
     canonicalUrl: { type: 'string' },
+    category: { type: 'string' },
+    series: { type: 'string' },
+    featured: { type: 'boolean' },
+    comments: { type: 'boolean' },
+    hero: { type: 'string' },
   },
   computedFields: {
     ...computedFields,
@@ -147,9 +193,89 @@ export const Authors = defineDocumentType(() => ({
   computedFields,
 }))
 
+export const Job = defineDocumentType(() => ({
+  name: 'Job',
+  filePathPattern: 'jobs/**/*.mdx',
+  contentType: 'mdx',
+  fields: {
+    title: { type: 'string', required: true },
+    summary: { type: 'string', required: true },
+    team: { type: 'string', required: true },
+    location: { type: 'string', required: true },
+    workingMode: { type: 'enum', options: workingModes, required: true },
+    employmentType: { type: 'enum', options: employmentTypes, required: true },
+    experience: { type: 'string', required: true },
+    status: { type: 'enum', options: jobStatuses, required: true },
+    draft: { type: 'boolean' },
+    postedAt: { type: 'date', required: true },
+    validThrough: { type: 'date' },
+    applyUrl: { type: 'string', required: true },
+    skills: { type: 'json', required: true },
+    responsibilities: { type: 'json', required: true },
+    qualifications: { type: 'json', required: true },
+  },
+  computedFields: {
+    ...computedFields,
+    isPublic: {
+      type: 'boolean',
+      resolve: (doc) => doc.draft === false && doc.status === 'open',
+    },
+    validation: {
+      type: 'json',
+      resolve: (doc) => {
+        assertAllowedValue('status', doc.status, jobStatuses)
+        assertAllowedValue('employmentType', doc.employmentType, employmentTypes)
+        assertAllowedValue('workingMode', doc.workingMode, workingModes)
+        assertApplicationUrl(doc.applyUrl)
+        assertNonEmptyList('skills', doc.skills)
+        assertNonEmptyList('responsibilities', doc.responsibilities)
+        assertNonEmptyList('qualifications', doc.qualifications)
+        return { ok: true }
+      },
+    },
+    structuredData: {
+      type: 'json',
+      resolve: (doc) => ({
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting',
+        title: doc.title,
+        description: doc.summary,
+        datePosted: doc.postedAt,
+        validThrough: doc.validThrough,
+        employmentType: doc.employmentType,
+        hiringOrganization: {
+          '@type': 'Organization',
+          name: company.name,
+          sameAs: siteMetadata.siteUrl,
+        },
+        ...(doc.workingMode === 'REMOTE'
+          ? {
+              jobLocationType: 'TELECOMMUTE',
+              applicantLocationRequirements: {
+                '@type': 'Country',
+                name: 'KR',
+              },
+            }
+          : {
+              jobLocation: {
+                '@type': 'Place',
+                address: {
+                  '@type': 'PostalAddress',
+                  addressCountry: 'KR',
+                  addressLocality: doc.location,
+                },
+              },
+            }),
+        directApply: false,
+        url: `${siteMetadata.siteUrl}/careers/${doc._raw.flattenedPath.replace(/^jobs\//, '')}`,
+      }),
+    },
+  },
+}))
+
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Blog, Authors],
+  documentTypes: [Blog, Authors, Job],
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [

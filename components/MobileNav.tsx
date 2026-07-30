@@ -1,34 +1,23 @@
 'use client'
 
 import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/react'
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
-import { Fragment, useState, useEffect, useRef } from 'react'
+import { Fragment, useState } from 'react'
 import Link from './Link'
 import headerNavLinks from '@/data/headerNavLinks'
 
 const MobileNav = () => {
   const [navShow, setNavShow] = useState(false)
-  const navRef = useRef(null)
 
-  const onToggleNav = () => {
-    setNavShow((status) => {
-      if (status) {
-        enableBodyScroll(navRef.current)
-      } else {
-        // Prevent scrolling
-        disableBodyScroll(navRef.current)
-      }
-      return !status
-    })
-  }
-
-  useEffect(() => {
-    return clearAllBodyScrollLocks
-  })
+  const onToggleNav = () => setNavShow((status) => !status)
+  const onCloseNav = () => setNavShow(false)
 
   return (
     <>
-      <button aria-label="Toggle Menu" onClick={onToggleNav} className="sm:hidden">
+      <button
+        aria-label="메뉴 열기"
+        onClick={onToggleNav}
+        className="inline-flex min-h-11 min-w-11 items-center justify-center md:hidden"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
@@ -43,7 +32,7 @@ const MobileNav = () => {
         </svg>
       </button>
       <Transition appear show={navShow} as={Fragment} unmount={false}>
-        <Dialog as="div" onClose={onToggleNav} unmount={false}>
+        <Dialog as="div" aria-label="모바일 메뉴" onClose={onCloseNav} unmount={false}>
           <TransitionChild
             as={Fragment}
             enter="ease-out duration-300"
@@ -68,16 +57,13 @@ const MobileNav = () => {
             unmount={false}
           >
             <DialogPanel className="fixed top-0 left-0 z-70 h-full w-full bg-white/95 duration-300 dark:bg-gray-950/98">
-              <nav
-                ref={navRef}
-                className="mt-8 flex h-full basis-0 flex-col items-start overflow-y-auto pt-2 pl-12 text-left"
-              >
+              <nav className="mt-8 flex h-full basis-0 flex-col items-start overflow-y-auto pt-2 pl-12 text-left">
                 {headerNavLinks.map((link) => (
                   <Link
                     key={link.title}
                     href={link.href}
                     className="hover:text-primary-500 dark:hover:text-primary-400 mb-4 py-2 pr-4 text-2xl font-bold tracking-widest text-gray-900 outline outline-0 dark:text-gray-100"
-                    onClick={onToggleNav}
+                    onClick={onCloseNav}
                   >
                     {link.title}
                   </Link>
@@ -86,8 +72,8 @@ const MobileNav = () => {
 
               <button
                 className="hover:text-primary-500 dark:hover:text-primary-400 fixed top-7 right-4 z-80 h-16 w-16 p-4 text-gray-900 dark:text-gray-100"
-                aria-label="Toggle Menu"
-                onClick={onToggleNav}
+                aria-label="메뉴 닫기"
+                onClick={onCloseNav}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                   <path
