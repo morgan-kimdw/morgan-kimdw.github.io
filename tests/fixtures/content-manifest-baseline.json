@@ -1,0 +1,572 @@
+{
+  "schemaVersion": 1,
+  "root": "data/blog",
+  "counts": {
+    "totalFiles": 61,
+    "mdxFiles": 61,
+    "markdownFiles": 0,
+    "explicitDraftTrue": 54,
+    "explicitDraftFalse": 7,
+    "mdxDraftTrue": 54,
+    "mdxDraftFalse": 7,
+    "mdxMissingDraft": 0,
+    "publishedMdx": 7,
+    "publicCandidateMdx": 7,
+    "markdownPreservedOnly": 0,
+    "missingDraftField": 0,
+    "gitTracked": 61,
+    "gitUntracked": 0
+  },
+  "untrackedPaths": [],
+  "files": [
+    {
+      "path": "data/blog/2023-draft/automation-for-svg.mdx",
+      "extension": ".mdx",
+      "sha256": "c4dfdb2f66dc154241b1d29e0228041d1d670d2b590fa74f4f86645c12a9fa9c",
+      "bytes": 147,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2023-draft/build-single-page-application-using-vanillajs.mdx",
+      "extension": ".mdx",
+      "sha256": "c6936900dc32c23166eaa7d85c3f5b474ca43c4540d5aa615763525d1aa26bfe",
+      "bytes": 260,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2023-draft/code-server-setting.mdx",
+      "extension": ".mdx",
+      "sha256": "9b11c8e0fad382c866d20e599c2ba5b66ca6a8c70f51d48d327e4d483c0f9482",
+      "bytes": 780,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2023-draft/construct-genuine-fullscreen-webapp.mdx",
+      "extension": ".mdx",
+      "sha256": "fa8c5278a5f9aa5fcb4bcd09fcdb63be674a7625b0d2ca588f26e012117fedb1",
+      "bytes": 349,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2023-draft/creating-internal-deploy-platform.mdx",
+      "extension": ".mdx",
+      "sha256": "98da4f4b6e6676e9fdc2ef704ba64cbb33c3b57fc2b5242ffa815b1b809b9905",
+      "bytes": 9271,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2023-draft/data-colocation.mdx",
+      "extension": ".mdx",
+      "sha256": "13f6c1e33b1cb381ccef83416d2a057914ff747f7ed2efffde59427bf3f05da8",
+      "bytes": 191,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2023-draft/illusion-it-is-the-new-tech.mdx",
+      "extension": ".mdx",
+      "sha256": "b6672f79be6936c64c5aa770175cb3597fed488af4546bd38e0b90c6fd205929",
+      "bytes": 3774,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2023-draft/improve-dx.mdx",
+      "extension": ".mdx",
+      "sha256": "0d76d6c658d9a5000d70605bc9ce97b0428d639291572bac611ba2e151d1b5ca",
+      "bytes": 4058,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2023-draft/improve-ux.mdx",
+      "extension": ".mdx",
+      "sha256": "69e6a080eb3aaab68d3517c0379bbdd7d5d468c2c8c8828f0711b7bd89d5d4fa",
+      "bytes": 399,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2023-draft/parse-dont-validate.mdx",
+      "extension": ".mdx",
+      "sha256": "fb6d191ecc00a41dcd432e3fa9cf93a720141e8fb6afd4bddc50526fbc7ede8b",
+      "bytes": 1200,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2023-draft/polymorphism-for-react.mdx",
+      "extension": ".mdx",
+      "sha256": "9872c2a2b6d25ae9ed962078aad3367c658f30250ffdc59a44dbf85b03be5e1b",
+      "bytes": 1591,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2023-draft/react-index-as-a-key.mdx",
+      "extension": ".mdx",
+      "sha256": "62ad190af5d855165d4587881be3c5b93589e9ced65c491b832236fd428dd0bc",
+      "bytes": 390,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2023-draft/things-to-watch-out-when-using-nextjs.mdx",
+      "extension": ".mdx",
+      "sha256": "e9b394128c436bae4161d4da8cd4c964abd3c56a3564783a728902f4afe9ad53",
+      "bytes": 1309,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2023-draft/tips-for-react.mdx",
+      "extension": ".mdx",
+      "sha256": "ce92182413bb597061d8c7a478a81021f9d9242542a15e7a52096833cd8dc0c7",
+      "bytes": 753,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2023-draft/useful-blogs-for-web-dev.mdx",
+      "extension": ".mdx",
+      "sha256": "a422c4b0c8dcd6b73aa3fdf0386cb5f074b6d37752234654a4e7af103d3a6b30",
+      "bytes": 1707,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2023-draft/what-closure-mean-in-a-language-with-1stclass-functions.mdx",
+      "extension": ".mdx",
+      "sha256": "4cd83ce2efb9ec7799d38efebdb3838b565e1f81eb01ffb16fb4fdfbf6863e1b",
+      "bytes": 350,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2023-draft/what-is-atomic-design-for-me.mdx",
+      "extension": ".mdx",
+      "sha256": "66730f11991dc8091fbb930e980c1bf8b32fe87a7e6b48d9bfa1101e33c936d8",
+      "bytes": 240,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2023-draft/why-i-love-react.mdx",
+      "extension": ".mdx",
+      "sha256": "b4b6874a62e049fb559d7b449abff00aed66804bcddb35743407daac8ef8e3e0",
+      "bytes": 159,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2024-draft/copy-and-paste-development.mdx",
+      "extension": ".mdx",
+      "sha256": "33f4cafeb89cd0cae43635cb7a4ce7b709f22cdbae894ec6a13d45ce33bcb211",
+      "bytes": 397,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2024-draft/dive-into-zod.mdx",
+      "extension": ".mdx",
+      "sha256": "215c80402c8b120e5ff5ab9526aa95fbee3b8b2260f291114f490bee801ff80f",
+      "bytes": 617,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2024-draft/everything-that-improve-type-safety.mdx",
+      "extension": ".mdx",
+      "sha256": "9170ffcd6f0845c659cef91060676ba56e3122e0f20c3b0a63aa1007d1d003c7",
+      "bytes": 383,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2024-draft/graceful-error-handling.mdx",
+      "extension": ".mdx",
+      "sha256": "475d6c89327dd5079612656c94a0249475593e91b2f36921bdf2f6e17616942b",
+      "bytes": 336,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2024-draft/implement-promise.mdx",
+      "extension": ".mdx",
+      "sha256": "043fced14478317cbff7cb634a151ed967b246d400a6ac9057d5bff3c4304820",
+      "bytes": 247,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2024-draft/improve-form-implementation.mdx",
+      "extension": ".mdx",
+      "sha256": "c0e4fa67b4be2a8215bed71f4a8db90cabd6a3c5066f7868e1d191454b83b5c2",
+      "bytes": 7296,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2024-draft/parse-dont-validate.mdx",
+      "extension": ".mdx",
+      "sha256": "2dcee06c80eea25a86438d6603f2c3319ccdf5d7c3965239bc66b6f0f880d266",
+      "bytes": 253,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2024-draft/patterns-for-solving-problem.mdx",
+      "extension": ".mdx",
+      "sha256": "2ef03385330a6a999f4cf80c47a54093c141c34d1b8338cd1b844833081d4674",
+      "bytes": 350,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2024-draft/rethinking-about-of-course-things.mdx",
+      "extension": ".mdx",
+      "sha256": "761e583a89dbea2550591de408844634269158c1b87638fd2dcef5e249fdbd5f",
+      "bytes": 595,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/2024-draft/retrospect-2024-half.mdx",
+      "extension": ".mdx",
+      "sha256": "e914f1157fc2116352f9070028087c763221f78f2b0aeb18779678747fd5447a",
+      "bytes": 2821,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/backend/deploy-nestjs-application-on-heroku-system.mdx",
+      "extension": ".mdx",
+      "sha256": "3504743a13e0e6086ec17c0e8fa0a2b7bf412c2c611cd7fef4c4b201390f510f",
+      "bytes": 10862,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/backend/graphql-arrays-n-lists.mdx",
+      "extension": ".mdx",
+      "sha256": "ac21b4896f7c4bd2e187c253821c39a298fd0a4308ad9acbda76c9a836fa64ea",
+      "bytes": 4782,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/backend/graphql-connections-n-pagination.mdx",
+      "extension": ".mdx",
+      "sha256": "0c4c9d6805c2c5507f37439578f68af3ab8d4f049117465e69a9ea091b89ce80",
+      "bytes": 19030,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/backend/graphql-mutations.mdx",
+      "extension": ".mdx",
+      "sha256": "233ce79b77f9e676052f3abfb016246d65cc59a3580abf8aa1ad6b49a88afe10",
+      "bytes": 17098,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/backend/graphql-queries-for-interactions.mdx",
+      "extension": ".mdx",
+      "sha256": "c9545e39d0a66f097fb292411526eaaea544113f518aa1e3eb751c6d3721aff5",
+      "bytes": 20244,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/backend/graphql-queries.mdx",
+      "extension": ".mdx",
+      "sha256": "1ce39684b2a333598adc7bde755cf033d6d51e5301e017c082483aeaa7d4fa13",
+      "bytes": 14743,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/essay/ai-does-not-replace-context.mdx",
+      "extension": ".mdx",
+      "sha256": "7a0eb967fd8182a83f64a2cfbea8dffb09d87e55c33089ac946073f846d72d3b",
+      "bytes": 6745,
+      "draft": false,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/essay/founding-is-enduring-reality.mdx",
+      "extension": ".mdx",
+      "sha256": "773111d9c437d6931252cd8900b3a4693505102a28b8a95ec76f6bfc912f6041",
+      "bytes": 9193,
+      "draft": false,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/essay/rethinking-programming-design-principle.mdx",
+      "extension": ".mdx",
+      "sha256": "fd5bc1afc5c996f31deb18edfefb98bfe58591e8c80e206665406d82f7a33e82",
+      "bytes": 428,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/essay/thinking-about-fundamental.mdx",
+      "extension": ".mdx",
+      "sha256": "21118326ad1a8b364abd5ec16d624831597bbfd5681b75a5e3b891a2c1e60cdd",
+      "bytes": 8355,
+      "draft": false,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/essay/thinking-about-grit.mdx",
+      "extension": ".mdx",
+      "sha256": "d637e1d6c70dca63035c725c7aa77a7e27471681a5e94393bf244d8bb7a57cb9",
+      "bytes": 339,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/frontend/create-native-like-image-slider-component.mdx",
+      "extension": ".mdx",
+      "sha256": "0378c966a87df095e78b43b6c4c6bdc6e325acc6927bdfd5e364d7cfadba9fb5",
+      "bytes": 14192,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/frontend/etc.mdx",
+      "extension": ".mdx",
+      "sha256": "d3496d548fa190a2c4dc6f5f67a43e8b650672ce7da4803a3d92192115e328ec",
+      "bytes": 312,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/frontend/flat-color-token-object-for-vanilla-extract.mdx",
+      "extension": ".mdx",
+      "sha256": "4d8e4ef7f2aa48d48d1d1079ff7d250c6f3878f0b1005b13e0f8c4c888df562c",
+      "bytes": 9614,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/frontend/how-to-make-advent-calendar.mdx",
+      "extension": ".mdx",
+      "sha256": "75c1861a0f1814f6092c2b2355cfde11c5ddd32659cc43c00ba2dc429257cde7",
+      "bytes": 9647,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/frontend/implement-reflow-prevented-lazy-loading-image-component.mdx",
+      "extension": ".mdx",
+      "sha256": "91f47ec53d979b37a8875fabdcd8660093e9def649c9c52dbd6797bbc973ae69",
+      "bytes": 8101,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/frontend/making-full-page-scroll-effect.mdx",
+      "extension": ".mdx",
+      "sha256": "10eb05c440ad01ef65a22ecc4e9983c3254dd622ac8ed9486e88d67677afca38",
+      "bytes": 11337,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/frontend/optimize-script-loading-on-react.mdx",
+      "extension": ".mdx",
+      "sha256": "c02d9e21cae8cc394403087225a92fe3130af246f9baa23b22c839512633041d",
+      "bytes": 6645,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/frontend/optimizing-nextjs-application.mdx",
+      "extension": ".mdx",
+      "sha256": "382327e40f8880022e05c6394f3e4278b61c221c5a865ed374d17afbcb80196f",
+      "bytes": 9330,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/frontend/pagetransition-animation-using-framer-motion.mdx",
+      "extension": ".mdx",
+      "sha256": "bb9e8b04374d01a977352d8748460ee0578c2f98134d0d1511b4e1c3fad5952a",
+      "bytes": 7869,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/frontend/ways-to-optimize-your-nextjs-application.mdx",
+      "extension": ".mdx",
+      "sha256": "9d4088b9bbad88702cf69ba52eecef800286b5117f0416324240aa42cba78bfb",
+      "bytes": 5238,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/funtional/declarative-programming-part1.mdx",
+      "extension": ".mdx",
+      "sha256": "306103dac37cd54f571844d0ffff2d7f074b0e827b8a1645e6d94ef4aab630dc",
+      "bytes": 13066,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/funtional/declarative-programming-part2.mdx",
+      "extension": ".mdx",
+      "sha256": "e927a1e5c9bb4cb11bf8babacffe4bc447bb3b04b865b899b71b3ba07d1ea060",
+      "bytes": 18074,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/funtional/what-is-throttle-debounce.mdx",
+      "extension": ".mdx",
+      "sha256": "86caf8e1dd0959d90cead88fd37d0e25c1bea00ac5b6a64c1695135e7664900a",
+      "bytes": 3753,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/good-fe-engineer/become-good-fe-engineer-00.mdx",
+      "extension": ".mdx",
+      "sha256": "7489a46c5d40c61cce56f5955d2e08e7619b1f49d6b67d6c42e847484579f276",
+      "bytes": 3249,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/good-fe-engineer/become-good-fe-engineer-01.mdx",
+      "extension": ".mdx",
+      "sha256": "b165c7a642f04863f93f4dfe7032205212a5091520635dccdcc8c6d5957db627",
+      "bytes": 481,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/good-fe-engineer/become-good-fe-engineer-05.mdx",
+      "extension": ".mdx",
+      "sha256": "7020e477c574178b082118cec17b981fbb1d5494de93591ffa3b0838d0f5979f",
+      "bytes": 890,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/language/fundamental-javascript.mdx",
+      "extension": ".mdx",
+      "sha256": "df0be52a382e9ec7c298af600076f2f087eb750962cb60cb653767e241f7e320",
+      "bytes": 26581,
+      "draft": false,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/language/review-javascript.mdx",
+      "extension": ".mdx",
+      "sha256": "02429317b8d6a393f6e4f2f008608ff839f282127b4de038b0d000c7007fc572",
+      "bytes": 2912,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/retrospect/retrospect-2023.mdx",
+      "extension": ".mdx",
+      "sha256": "ecec04839393105bcc56420d082534f2d7007602a3d275bfdbff934a588945ed",
+      "bytes": 9003,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/retrospect/retrospect-2024.mdx",
+      "extension": ".mdx",
+      "sha256": "971af4272e58d4538de577f01568461e96ecaaf5fed365a4829bbbb5af793e4d",
+      "bytes": 10127,
+      "draft": false,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/review/automation-for-work.mdx",
+      "extension": ".mdx",
+      "sha256": "1c314727fd20383bf278d16bdcbaa94dc50119dd5c33681e93fed2eb730e2a39",
+      "bytes": 20295,
+      "draft": false,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/review/making-internal-platform-lumberjack.mdx",
+      "extension": ".mdx",
+      "sha256": "db2c1a4985808c40cece9809f0aa5205a7f8e4131fdd4cb4a9f9a3cb56d0e878",
+      "bytes": 22518,
+      "draft": false,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    }
+  ]
+}

@@ -1,22 +1,13 @@
 {
-  "backend": 1,
-  "graphql": 5,
-  "relay": 5,
-  "essay": 3,
   "ai": 2,
-  "leadership": 2,
+  "automation": 1,
   "context": 1,
-  "ontology": 1,
-  "startup": 1,
-  "frontend": 10,
-  "animation": 2,
-  "javascript": 3,
-  "typescript": 1,
-  "optimization": 1,
-  "declarative": 2,
-  "algebraic-effect": 2,
+  "essay": 3,
+  "javascript": 1,
+  "leadership": 2,
   "linguistics": 1,
+  "ontology": 1,
   "retrospect": 1,
   "review": 2,
-  "automation": 1
+  "startup": 1
 }

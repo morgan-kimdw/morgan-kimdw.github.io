@@ -1,4 +1,4 @@
-import 'css/prism.css'
+import '@/css/prism.css'
 import 'katex/dist/katex.css'
 
 import PageTitle from '@/components/PageTitle'
@@ -12,6 +12,8 @@ import PostLayout from '@/layouts/PostLayout'
 import PostBanner from '@/layouts/PostBanner'
 import { Metadata } from 'next'
 import siteMetadata from '@/data/siteMetadata'
+import { getPublishedPosts } from '@/lib/content/public-content.mjs'
+import { toArticleDisplay } from '@/lib/content/article-display.mjs'
 import { notFound } from 'next/navigation'
 
 const defaultLayout = 'PostLayout'
@@ -26,16 +28,15 @@ export async function generateMetadata(props: {
 }): Promise<Metadata | undefined> {
   const params = await props.params
   const slug = decodeURI(params.slug.join('/'))
-  const post = allBlogs.find((p) => p.slug === slug)
+  const post = getPublishedPosts(allBlogs).find((candidate) => candidate.slug === slug)
+  if (!post) {
+    return
+  }
   const authorList = post?.authors || ['default']
   const authorDetails = authorList.map((author) => {
     const authorResults = allAuthors.find((p) => p.slug === author)
     return coreContent(authorResults as Authors)
   })
-  if (!post) {
-    return
-  }
-
   const publishedAt = new Date(post.date).toISOString()
   const modifiedAt = new Date(post.lastmod || post.date).toISOString()
   const authors = authorDetails.map((author) => author.name)
@@ -50,13 +51,13 @@ export async function generateMetadata(props: {
   })
 
   return {
-    title: post.title,
+    title: post.displayTitle,
     description: post.summary,
     openGraph: {
-      title: post.title,
+      title: post.displayTitle,
       description: post.summary,
       siteName: siteMetadata.title,
-      locale: 'en_US',
+      locale: 'ko_KR',
       type: 'article',
       publishedTime: publishedAt,
       modifiedTime: modifiedAt,
@@ -66,7 +67,7 @@ export async function generateMetadata(props: {
     },
     twitter: {
       card: 'summary_large_image',
-      title: post.title,
+      title: post.displayTitle,
       description: post.summary,
       images: imageList,
     },
@@ -74,14 +75,16 @@ export async function generateMetadata(props: {
 }
 
 export const generateStaticParams = async () => {
-  return allBlogs.map((p) => ({ slug: p.slug.split('/').map((name) => decodeURI(name)) }))
+  return getPublishedPosts(allBlogs).map((post) => ({
+    slug: post.slug.split('/').map((name) => decodeURI(name)),
+  }))
 }
 
 export default async function Page(props: { params: Promise<{ slug: string[] }> }) {
   const params = await props.params
   const slug = decodeURI(params.slug.join('/'))
-  // Filter out drafts in production
-  const sortedCoreContents = allCoreContent(sortPosts(allBlogs))
+  const publicBlogs = getPublishedPosts(allBlogs)
+  const sortedCoreContents = allCoreContent(sortPosts(publicBlogs)).map(toArticleDisplay)
   const postIndex = sortedCoreContents.findIndex((p) => p.slug === slug)
   if (postIndex === -1) {
     return notFound()
@@ -89,20 +92,31 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
 
   const prev = sortedCoreContents[postIndex + 1]
   const next = sortedCoreContents[postIndex - 1]
-  const post = allBlogs.find((p) => p.slug === slug) as Blog
+  const post = publicBlogs.find((p) => p.slug === slug) as Blog
   const authorList = post?.authors || ['default']
   const authorDetails = authorList.map((author) => {
     const authorResults = allAuthors.find((p) => p.slug === author)
     return coreContent(authorResults as Authors)
   })
-  const mainContent = coreContent(post)
-  const jsonLd = post.structuredData
-  jsonLd['author'] = authorDetails.map((author) => {
-    return {
+  const mainContent = toArticleDisplay(coreContent(post))
+  const related = sortedCoreContents
+    .filter(
+      (candidate) =>
+        candidate.slug !== post.slug && candidate.tags?.some((tag) => post.tags?.includes(tag))
+    )
+    .slice(0, 3)
+  const jsonLd = {
+    ...post.structuredData,
+    author: authorDetails.map((author) => ({
       '@type': 'Person',
       name: author.name,
-    }
-  })
+    })),
+    publisher: {
+      '@type': 'Organization',
+      name: siteMetadata.companyName || siteMetadata.title,
+      url: siteMetadata.siteUrl,
+    },
+  }
 
   const Layout = layouts[post.layout || defaultLayout]
 
@@ -112,7 +126,13 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Layout content={mainContent} authorDetails={authorDetails} next={next} prev={prev}>
+      <Layout
+        content={mainContent}
+        authorDetails={authorDetails}
+        next={next}
+        prev={prev}
+        related={related}
+      >
         <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
       </Layout>
     </>

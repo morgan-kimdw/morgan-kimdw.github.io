@@ -1,23 +1,24 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'morgan-kimdw.github.io',
-  author: 'Moel',
-  headerTitle: 'Moel',
-  description: 'Lesson and Learn',
+  title: 'Aegifold Technologies',
+  author: 'Aegifold Technologies',
+  companyName: 'Aegifold Technologies',
+  headerTitle: 'Aegifold Technologies',
+  description: '작은 실행에서 얻은 지식과 배움을 다음 성과의 기반으로 쌓는 기술 회사',
   language: 'ko-KR',
   theme: 'system', // system, dark or light
   siteUrl: 'https://morgan-kimdw.github.io',
   siteRepo: 'https://github.com/morgan-kimdw/morgan-kimdw.github.io',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
-  socialBanner: `${process.env.BASE_PATH || ''}/static/images/avatar.jpeg`,
+  socialBanner: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   // mastodon: 'https://mastodon.social/@mastodonuser',
-  email: 'moel.kimdw@gmail.com',
-  github: 'https://github.com/morgan-kimdw',
+  email: '',
+  github: 'https://github.com/aegifold',
   // x: 'https://twitter.com/x',
   // twitter: 'https://twitter.com/Twitter',
   // facebook: 'https://facebook.com',
   // youtube: 'https://youtube.com',
-  linkedin: 'https://www.linkedin.com/in/moel-kim',
+  linkedin: '',
   // threads: 'https://www.threads.net',
   // instagram: 'https://www.instagram.com',
   // medium: 'https://medium.com',
@@ -32,6 +33,7 @@ const siteMetadata = {
     umamiAnalytics: {
       // We use an env variable for this site to avoid other users cloning our analytics ID
       umamiWebsiteId: process.env.NEXT_UMAMI_ID, // e.g. 123e4567-e89b-12d3-a456-426614174000
+      src: 'https://cloud.umami.is/script.js',
       // You may also need to overwrite the script if you're storing data in the US - ex:
       // src: 'https://us.umami.is/script.js'
       // Remember to add 'us.umami.is' in `next.config.js` as a permitted domain for the CSP

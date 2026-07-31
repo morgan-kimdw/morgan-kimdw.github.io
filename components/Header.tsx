@@ -1,47 +1,49 @@
-import siteMetadata from '@/data/siteMetadata'
+import Image from '@/components/Image'
+import Link from '@/components/Link'
+import MobileNav from '@/components/MobileNav'
+import SearchButton from '@/components/SearchButton'
+import ThemeSwitch from '@/components/ThemeSwitch'
 import headerNavLinks from '@/data/headerNavLinks'
-import Logo from '@/data/logo.svg'
-import Link from './Link'
-import MobileNav from './MobileNav'
-import ThemeSwitch from './ThemeSwitch'
-import SearchButton from './SearchButton'
+import siteMetadata from '@/data/siteMetadata'
 
-const Header = () => {
-  let headerClass = 'flex items-center w-full bg-white dark:bg-gray-950 justify-between py-10'
-  if (siteMetadata.stickyNav) {
-    headerClass += ' sticky top-0 z-50'
-  }
-
+export default function Header() {
   return (
-    <header className={headerClass}>
-      <Link href="/" aria-label={siteMetadata.headerTitle}>
-        <div className="flex items-center justify-between">
-          <div className="mr-3">
-            <Logo />
-          </div>
-          {typeof siteMetadata.headerTitle === 'string' ? (
-            <div className="hidden h-6 text-2xl font-semibold sm:block">
-              {siteMetadata.headerTitle}
-            </div>
-          ) : (
-            siteMetadata.headerTitle
-          )}
-        </div>
+    <header className="bg-paper/95 dark:bg-ink/95 flex min-h-16 w-full items-center justify-between border-b border-gray-300 dark:border-gray-800">
+      <Link
+        href="/"
+        aria-label={`${siteMetadata.headerTitle} 홈`}
+        className="inline-flex min-h-11 min-w-0 items-center gap-3 font-semibold"
+      >
+        <Image
+          src="/static/images/logo-header.png"
+          alt=""
+          width={36}
+          height={36}
+          priority
+          aria-hidden="true"
+          className="h-9 w-9 shrink-0 object-cover"
+        />
+        <span className="hidden truncate text-sm sm:inline lg:text-base">
+          {siteMetadata.headerTitle}
+        </span>
       </Link>
-      <div className="flex items-center space-x-4 leading-5 sm:-mr-6 sm:space-x-6">
-        <div className="no-scrollbar hidden max-w-40 items-center gap-x-4 overflow-x-auto sm:flex md:max-w-72 lg:max-w-96">
+      <div className="flex items-center gap-2 sm:gap-4">
+        <nav
+          aria-label="주요 메뉴"
+          className="no-scrollbar hidden items-center gap-1 overflow-x-auto md:flex"
+        >
           {headerNavLinks
             .filter((link) => link.href !== '/')
             .map((link) => (
               <Link
                 key={link.title}
                 href={link.href}
-                className="hover:text-primary-500 dark:hover:text-primary-400 m-1 font-medium text-gray-900 dark:text-gray-100"
+                className="hover:text-primary-600 dark:hover:text-primary-400 inline-flex min-h-11 items-center px-3 text-sm font-semibold text-gray-700 transition-colors dark:text-gray-200"
               >
                 {link.title}
               </Link>
             ))}
-        </div>
+        </nav>
         <SearchButton />
         <ThemeSwitch />
         <MobileNav />
@@ -49,5 +51,3 @@ const Header = () => {
     </header>
   )
 }
-
-export default Header

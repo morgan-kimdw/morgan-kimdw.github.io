@@ -1,0 +1,381 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-07-31T10:59:43.686Z",
+  "git": {
+    "branch": "HEAD",
+    "commit": "0763952c7b6b895b75059037cd811d0ba9c1fb0b"
+  },
+  "runtime": {
+    "node": "v22.23.1",
+    "yarn": "4.18.0"
+  },
+  "content": {
+    "counts": {
+      "totalFiles": 61,
+      "mdxFiles": 61,
+      "markdownFiles": 0,
+      "explicitDraftTrue": 54,
+      "explicitDraftFalse": 7,
+      "mdxDraftTrue": 54,
+      "mdxDraftFalse": 7,
+      "mdxMissingDraft": 0,
+      "publishedMdx": 7,
+      "publicCandidateMdx": 7,
+      "markdownPreservedOnly": 0,
+      "missingDraftField": 0,
+      "gitTracked": 61,
+      "gitUntracked": 0
+    },
+    "untrackedPaths": [],
+    "publishedBlogRoutes": [
+      "/blog/essay/ai-does-not-replace-context",
+      "/blog/essay/founding-is-enduring-reality",
+      "/blog/essay/thinking-about-fundamental",
+      "/blog/language/fundamental-javascript",
+      "/blog/retrospect/retrospect-2024",
+      "/blog/review/automation-for-work",
+      "/blog/review/making-internal-platform-lumberjack"
+    ],
+    "missingDraftPaths": [],
+    "publicCandidateMdxRoutes": [
+      "/blog/essay/ai-does-not-replace-context",
+      "/blog/essay/founding-is-enduring-reality",
+      "/blog/essay/thinking-about-fundamental",
+      "/blog/language/fundamental-javascript",
+      "/blog/retrospect/retrospect-2024",
+      "/blog/review/automation-for-work",
+      "/blog/review/making-internal-platform-lumberjack"
+    ],
+    "customMdxUsage": {
+      "TOCInline": {
+        "componentPath": null,
+        "usagePaths": [
+          "data/blog/2023-draft/build-single-page-application-using-vanillajs.mdx",
+          "data/blog/2023-draft/creating-internal-deploy-platform.mdx",
+          "data/blog/2023-draft/what-closure-mean-in-a-language-with-1stclass-functions.mdx",
+          "data/blog/2024-draft/implement-promise.mdx",
+          "data/blog/2024-draft/improve-form-implementation.mdx",
+          "data/blog/2024-draft/retrospect-2024-half.mdx",
+          "data/blog/backend/deploy-nestjs-application-on-heroku-system.mdx",
+          "data/blog/frontend/create-native-like-image-slider-component.mdx",
+          "data/blog/frontend/etc.mdx",
+          "data/blog/frontend/flat-color-token-object-for-vanilla-extract.mdx",
+          "data/blog/frontend/how-to-make-advent-calendar.mdx",
+          "data/blog/frontend/implement-reflow-prevented-lazy-loading-image-component.mdx",
+          "data/blog/frontend/making-full-page-scroll-effect.mdx",
+          "data/blog/frontend/optimize-script-loading-on-react.mdx",
+          "data/blog/frontend/optimizing-nextjs-application.mdx",
+          "data/blog/frontend/pagetransition-animation-using-framer-motion.mdx",
+          "data/blog/frontend/ways-to-optimize-your-nextjs-application.mdx",
+          "data/blog/funtional/declarative-programming-part1.mdx",
+          "data/blog/funtional/declarative-programming-part2.mdx",
+          "data/blog/funtional/what-is-throttle-debounce.mdx",
+          "data/blog/good-fe-engineer/become-good-fe-engineer-00.mdx",
+          "data/blog/good-fe-engineer/become-good-fe-engineer-01.mdx",
+          "data/blog/language/fundamental-javascript.mdx",
+          "data/blog/language/review-javascript.mdx",
+          "data/blog/retrospect/retrospect-2023.mdx",
+          "data/blog/retrospect/retrospect-2024.mdx",
+          "data/blog/review/automation-for-work.mdx",
+          "data/blog/review/making-internal-platform-lumberjack.mdx"
+        ]
+      },
+      "Youtube": {
+        "componentPath": "components/Youtube.tsx",
+        "usagePaths": [
+          "data/blog/essay/thinking-about-fundamental.mdx",
+          "data/blog/language/review-javascript.mdx"
+        ]
+      }
+    }
+  },
+  "routes": {
+    "appRoutes": [
+      {
+        "filePath": "app/about/page.tsx",
+        "route": "/about"
+      },
+      {
+        "filePath": "app/api/health/route.ts",
+        "route": "/api/health"
+      },
+      {
+        "filePath": "app/blog/[...slug]/page.tsx",
+        "route": "/blog/[...slug]"
+      },
+      {
+        "filePath": "app/blog/page.tsx",
+        "route": "/blog"
+      },
+      {
+        "filePath": "app/blog/page/[page]/page.tsx",
+        "route": "/blog/page/[page]"
+      },
+      {
+        "filePath": "app/careers/[slug]/page.tsx",
+        "route": "/careers/[slug]"
+      },
+      {
+        "filePath": "app/careers/page.tsx",
+        "route": "/careers"
+      },
+      {
+        "filePath": "app/company/page.tsx",
+        "route": "/company"
+      },
+      {
+        "filePath": "app/page.tsx",
+        "route": "/"
+      },
+      {
+        "filePath": "app/projects/page.tsx",
+        "route": "/projects"
+      },
+      {
+        "filePath": "app/robots.ts",
+        "route": "/robots.txt"
+      },
+      {
+        "filePath": "app/sitemap.ts",
+        "route": "/sitemap.xml"
+      },
+      {
+        "filePath": "app/tags/[tag]/page.tsx",
+        "route": "/tags/[tag]"
+      },
+      {
+        "filePath": "app/tags/[tag]/page/[page]/page.tsx",
+        "route": "/tags/[tag]/page/[page]"
+      },
+      {
+        "filePath": "app/tags/page.tsx",
+        "route": "/tags"
+      }
+    ],
+    "headerNavLinks": [
+      {
+        "href": "/",
+        "title": "홈"
+      },
+      {
+        "href": "/blog",
+        "title": "스토리"
+      },
+      {
+        "href": "/company",
+        "title": "회사"
+      },
+      {
+        "href": "/careers",
+        "title": "채용"
+      }
+    ]
+  },
+  "metadata": {
+    "title": "Aegifold Technologies",
+    "author": "Aegifold Technologies",
+    "description": "작은 실행에서 얻은 지식과 배움을 다음 성과의 기반으로 쌓는 기술 회사",
+    "language": "ko-KR",
+    "locale": "ko-KR",
+    "siteUrl": "https://morgan-kimdw.github.io",
+    "commentsProvider": "giscus",
+    "searchProvider": "kbar",
+    "analyticsProviders": ["googleAnalytics", "umamiAnalytics"]
+  },
+  "packageJson": {
+    "packageManager": "yarn@4.18.0",
+    "scripts": {
+      "start": "node .next/standalone/server.js",
+      "dev": "node scripts/comments-check.mjs && cross-env INIT_CWD=$PWD next dev",
+      "build": "node scripts/comments-check.mjs && cross-env INIT_CWD=$PWD next build --webpack && cross-env NODE_OPTIONS='--experimental-json-modules' node ./scripts/postbuild.mjs",
+      "serve": "node .next/standalone/server.js",
+      "analyze": "cross-env ANALYZE=true next build",
+      "lint": "eslint app animations components data layouts lib scripts tests contentlayer.config.ts eslint.config.mjs next.config.js postcss.config.js",
+      "lint:fix": "eslint --fix app animations components data layouts lib scripts tests contentlayer.config.ts eslint.config.mjs next.config.js postcss.config.js",
+      "typecheck": "contentlayer2 build && tsc --noEmit",
+      "test": "yarn build && node --test",
+      "content:manifest": "node scripts/content-manifest.mjs",
+      "content:manifest:write": "node scripts/content-manifest.mjs --write-baseline",
+      "content:check": "node scripts/content-workflow.mjs check",
+      "content:new": "node scripts/content-workflow.mjs new",
+      "content:publish": "node scripts/content-workflow.mjs publish",
+      "content:smoke": "node scripts/public-content-smoke.mjs",
+      "comments:check": "node scripts/comments-check.mjs",
+      "baseline:write": "node scripts/baseline-snapshot.mjs --write-baseline",
+      "smoke:http": "node scripts/http-smoke.mjs",
+      "smoke:container": "node scripts/container-smoke.mjs",
+      "test:e2e": "node scripts/public-content-smoke.mjs",
+      "dependency:ledger": "node scripts/dependency-ledger.mjs --write",
+      "prepare": "husky"
+    },
+    "dependencies": {
+      "@headlessui/react": "2.2.10",
+      "@next/bundle-analyzer": "16.2.12",
+      "@tailwindcss/forms": "0.5.11",
+      "@tailwindcss/postcss": "4.3.3",
+      "@tailwindcss/typography": "0.5.20",
+      "contentlayer2": "0.5.8",
+      "esbuild": "0.28.1",
+      "github-slugger": "2.0.0",
+      "hast-util-from-html-isomorphic": "2.0.0",
+      "motion": "12.43.0",
+      "next": "16.2.12",
+      "next-contentlayer2": "0.5.8",
+      "next-themes": "0.4.6",
+      "pliny": "0.4.1",
+      "postcss": "8.5.25",
+      "react": "19.2.8",
+      "react-dom": "19.2.8",
+      "reading-time": "1.5.0",
+      "rehype-autolink-headings": "7.1.0",
+      "rehype-citation": "2.3.2",
+      "rehype-katex": "7.0.1",
+      "rehype-katex-notranslate": "1.1.4",
+      "rehype-preset-minify": "7.0.1",
+      "rehype-prism-plus": "2.0.2",
+      "rehype-slug": "6.0.0",
+      "remark-gfm": "4.0.1",
+      "remark-github-blockquote-alert": "2.1.0",
+      "remark-math": "6.0.0",
+      "tailwindcss": "4.3.3"
+    },
+    "devDependencies": {
+      "@svgr/webpack": "8.1.0",
+      "@types/mdx": "2.0.14",
+      "@types/react": "19.2.17",
+      "cross-env": "10.1.0",
+      "eslint": "9.39.5",
+      "eslint-config-next": "16.2.12",
+      "eslint-config-prettier": "10.1.8",
+      "eslint-plugin-prettier": "5.5.6",
+      "husky": "9.1.7",
+      "lint-staged": "17.2.0",
+      "prettier": "3.9.6",
+      "prettier-plugin-tailwindcss": "0.8.1",
+      "typescript": "6.0.3"
+    },
+    "dependencyCount": 29,
+    "devDependencyCount": 13
+  },
+  "generatedArtifacts": {
+    "feedFiles": [
+      {
+        "path": "public/feed.xml",
+        "bytes": 4543,
+        "itemCount": 7,
+        "urlCount": 0
+      },
+      {
+        "path": "public/tags/ai/feed.xml",
+        "bytes": 2034,
+        "itemCount": 2,
+        "urlCount": 0
+      },
+      {
+        "path": "public/tags/automation/feed.xml",
+        "bytes": 1167,
+        "itemCount": 1,
+        "urlCount": 0
+      },
+      {
+        "path": "public/tags/context/feed.xml",
+        "bytes": 1386,
+        "itemCount": 1,
+        "urlCount": 0
+      },
+      {
+        "path": "public/tags/essay/feed.xml",
+        "bytes": 2537,
+        "itemCount": 3,
+        "urlCount": 0
+      },
+      {
+        "path": "public/tags/javascript/feed.xml",
+        "bytes": 1191,
+        "itemCount": 1,
+        "urlCount": 0
+      },
+      {
+        "path": "public/tags/leadership/feed.xml",
+        "bytes": 2042,
+        "itemCount": 2,
+        "urlCount": 0
+      },
+      {
+        "path": "public/tags/linguistics/feed.xml",
+        "bytes": 1192,
+        "itemCount": 1,
+        "urlCount": 0
+      },
+      {
+        "path": "public/tags/ontology/feed.xml",
+        "bytes": 1387,
+        "itemCount": 1,
+        "urlCount": 0
+      },
+      {
+        "path": "public/tags/retrospect/feed.xml",
+        "bytes": 1173,
+        "itemCount": 1,
+        "urlCount": 0
+      },
+      {
+        "path": "public/tags/review/feed.xml",
+        "bytes": 1716,
+        "itemCount": 2,
+        "urlCount": 0
+      },
+      {
+        "path": "public/tags/startup/feed.xml",
+        "bytes": 1339,
+        "itemCount": 1,
+        "urlCount": 0
+      }
+    ],
+    "searchJson": {
+      "path": "public/search.json",
+      "bytes": 16946,
+      "documents": 7
+    },
+    "tagData": {
+      "path": "app/tag-data.json",
+      "tags": [
+        "ai",
+        "automation",
+        "context",
+        "essay",
+        "javascript",
+        "leadership",
+        "linguistics",
+        "ontology",
+        "retrospect",
+        "review",
+        "startup"
+      ]
+    }
+  },
+  "performanceArtifacts": {
+    "nextBuildManifest": {
+      "path": ".next/build-manifest.json",
+      "bytes": 510,
+      "pages": ["/_app"]
+    },
+    "nextRoutesManifest": {
+      "path": ".next/routes-manifest.json",
+      "bytes": 5384
+    },
+    "publicAssetBytes": 13968543
+  },
+  "environmentContract": {
+    "nvmrc": "v24.18.0",
+    "yarnrc": "approvedGitRepositories:\n  - '**'\n\ncompressionLevel: mixed\n\nenableGlobalCache: false\n\nenableScripts: true\n\nnetworkConcurrency: 10\n\nnodeLinker: node-modules\n\nnpmMinimalAgeGate: 0\n\nnpmRegistryServer: 'https://registry.npmjs.org'\n\nyarnPath: .yarn/releases/yarn-4.18.0.cjs",
+    "referencedPublicEnvNames": [
+      "BASE_PATH",
+      "NEXT_UMAMI_ID",
+      "NEXT_PUBLIC_GISCUS_REPO",
+      "NEXT_PUBLIC_GISCUS_REPOSITORY_ID",
+      "NEXT_PUBLIC_GISCUS_CATEGORY",
+      "NEXT_PUBLIC_GISCUS_CATEGORY_ID"
+    ]
+  }
+}

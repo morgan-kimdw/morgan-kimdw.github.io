@@ -1,35 +1,31 @@
-import Link from './Link'
-import siteMetadata from '@/data/siteMetadata'
-import SocialIcon from '@/components/social-icons'
+import Link from '@/components/Link'
+import { company } from '@/data/company'
 
 export default function Footer() {
   return (
-    <footer>
-      <div className="mt-16 flex flex-col items-center">
-        <div className="mb-3 flex space-x-4">
-          <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={6} />
-          <SocialIcon kind="github" href={siteMetadata.github} size={6} />
-          <SocialIcon kind="facebook" href={siteMetadata.facebook} size={6} />
-          <SocialIcon kind="youtube" href={siteMetadata.youtube} size={6} />
-          <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={6} />
-          <SocialIcon kind="twitter" href={siteMetadata.twitter} size={6} />
-          <SocialIcon kind="bluesky" href={siteMetadata.bluesky} size={6} />
-          <SocialIcon kind="x" href={siteMetadata.x} size={6} />
-          <SocialIcon kind="instagram" href={siteMetadata.instagram} size={6} />
-          <SocialIcon kind="threads" href={siteMetadata.threads} size={6} />
-          <SocialIcon kind="medium" href={siteMetadata.medium} size={6} />
+    <footer className="mt-20 border-t border-gray-300 py-10 sm:mt-28 dark:border-gray-800">
+      <div className="grid gap-10 md:grid-cols-12">
+        <div className="md:col-span-6">
+          <p className="text-xl font-semibold tracking-tight">{company.name}</p>
+          <p className="mt-3 max-w-md leading-7 text-gray-600 dark:text-gray-300">
+            {company.tagline}
+          </p>
         </div>
-        <div className="mb-2 flex space-x-2 text-sm text-gray-500 dark:text-gray-400">
-          <div>{siteMetadata.author}</div>
-          <div>{` • `}</div>
-          <div>{`© ${new Date().getFullYear()}`}</div>
-          <div>{` • `}</div>
-          <Link href="/">{siteMetadata.title}</Link>
-        </div>
-        <div className="mb-8 text-sm text-gray-500 dark:text-gray-400">
-          <Link href="https://github.com/timlrx/tailwind-nextjs-starter-blog">
-            Tailwind Nextjs Theme
-          </Link>
+        <nav
+          aria-label="하단 메뉴"
+          className="grid grid-cols-2 gap-3 text-sm font-medium md:col-span-3"
+        >
+          <Link href="/blog">스토리</Link>
+          <Link href="/company">회사</Link>
+          <Link href="/careers">채용</Link>
+        </nav>
+        <div className="md:col-span-3 md:text-right">
+          <a href={company.github} className="text-primary-600 dark:text-primary-400 font-semibold">
+            Aegifold GitHub ↗
+          </a>
+          <p className="mt-6 text-sm text-gray-500 dark:text-gray-400">
+            © {new Date().getFullYear()} {company.shortName}
+          </p>
         </div>
       </div>
     </footer>

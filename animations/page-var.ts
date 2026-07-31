@@ -1,4 +1,4 @@
-import type { Variants } from 'framer-motion'
+import type { Variants } from 'motion/react'
 
 export const PageVariants: Variants = {
   hidden: { opacity: 0 },

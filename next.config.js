@@ -4,16 +4,22 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
 
-// You might need to insert additional domains in script-src if you are using external services
+const isDevelopment = process.env.NODE_ENV === 'development'
+
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app analytics.umami.is;
+  base-uri 'self';
+  object-src 'none';
+  form-action 'self';
+  frame-ancestors 'none';
+  script-src 'self' 'unsafe-inline'${isDevelopment ? " 'unsafe-eval'" : ''} https://giscus.app https://www.googletagmanager.com https://cloud.umami.is;
   style-src 'self' 'unsafe-inline';
-  img-src * blob: data:;
-  media-src *.s3.amazonaws.com;
-  connect-src *;
-  font-src 'self';
-  frame-src giscus.app *.youtube.com;
+  img-src 'self' blob: data: https:;
+  media-src 'self' https://*.s3.amazonaws.com;
+  connect-src 'self' https://giscus.app https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://cloud.umami.is https://gateway.umami.is;
+  font-src 'self' data:;
+  frame-src https://giscus.app https://www.youtube.com https://www.youtube-nocookie.com;
+  ${isDevelopment ? '' : 'upgrade-insecure-requests;'}
 `
 
 const securityHeaders = [
@@ -54,7 +60,7 @@ const securityHeaders = [
   },
 ]
 
-const output = process.env.EXPORT ? 'export' : undefined
+const output = process.env.EXPORT ? 'export' : 'standalone'
 const basePath = process.env.BASE_PATH || undefined
 const unoptimized = process.env.UNOPTIMIZED ? true : undefined
 
@@ -67,27 +73,35 @@ module.exports = () => {
     output,
     basePath,
     reactStrictMode: true,
-    pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-    eslint: {
-      dirs: ['app', 'components', 'layouts', 'scripts'],
+    turbopack: {
+      root: process.cwd(),
+      rules: {
+        '*.svg': {
+          loaders: ['@svgr/webpack'],
+          as: '*.js',
+        },
+      },
     },
+    pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
     images: {
       remotePatterns: [
-        {
-          protocol: 'https',
-          hostname: 'picsum.photos',
-        },
-      ],
+        'cdn.prod.website-files.com',
+        'i.namu.wiki',
+        'orangematter.solarwinds.com',
+        'repository-images.githubusercontent.com',
+        'upload.wikimedia.org',
+        'vanilla-extract.style',
+      ].map((hostname) => ({ protocol: 'https', hostname })),
       unoptimized,
     },
-    // async headers() {
-    //   return [
-    //     {
-    //       source: '/(.*)',
-    //       headers: securityHeaders,
-    //     },
-    //   ]
-    // },
+    async headers() {
+      return [
+        {
+          source: '/(.*)',
+          headers: securityHeaders,
+        },
+      ]
+    },
     webpack: (config, options) => {
       config.module.rules.push({
         test: /\.svg$/,
