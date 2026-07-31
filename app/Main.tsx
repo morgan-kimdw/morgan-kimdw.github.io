@@ -32,7 +32,7 @@ export default function Home({ posts }: HomeProps) {
         </div>
         <div className="flex flex-col justify-end lg:col-span-4">
           <p className="max-w-xl text-lg leading-8 font-medium text-gray-800 dark:text-gray-100">
-            1원칙으로 생각하고, 작게 실행하며, 배운 것을 다음 실행에 쌓아 복리를 만듭니다.
+            1원칙으로 생각하고, 작게 실행하며, 배운 것을 다음 실행에 남깁니다.
           </p>
           <Link
             href="/blog"

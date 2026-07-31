@@ -27,7 +27,7 @@ export default function CompanyPage() {
             {company.coreBrandLine}
           </p>
           <h1 className="mt-5 max-w-4xl text-4xl leading-[1.08] font-semibold sm:text-6xl">
-            지킬 것을 정하고, 배움을 쌓습니다.
+            실행에서 배운 것이 다음 성과의 기반이 됩니다.
           </h1>
           <p className="mt-8 max-w-2xl text-xl leading-9 font-medium text-gray-800 dark:text-gray-100">
             {company.companyAttitude}
@@ -50,8 +50,8 @@ export default function CompanyPage() {
             우리는 이렇게 일합니다
           </h2>
           <p className="mt-4 max-w-sm leading-7 text-gray-600 dark:text-gray-300">
-            가장 중요한 기준은 {company.primaryValue}입니다. 깊이 생각할 것이 남아 있으면 더
-            생각하고, 실행할 수 있는 지점에서는 작게 끝냅니다.
+            가장 중요한 기준은 {company.primaryValue}입니다. 확인한 사실에서 다시 생각하고, 작게
+            실행한 뒤, 배운 것을 다음 선택에 남깁니다.
           </p>
         </div>
         <ol className="lg:col-span-8">

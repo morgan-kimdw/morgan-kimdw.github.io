@@ -1,17 +1,17 @@
 export const company = {
   name: 'Aegifold Technologies',
   shortName: 'Aegifold',
-  coreBrandLine: 'Aegifold Technologies, The Compounding Company',
+  coreBrandLine: 'Aegifold — The Compounding Company',
   tagline: 'The Compounding Company',
-  coreStatement: '실행과 배움을 쌓아 복리를 만듭니다.',
+  coreStatement: '한 번의 실행이 다음 실행을 더 낫게 만듭니다.',
   nameFormula: 'Aegifold = Aegis + Folding = 보호 + 복리',
   nameMeaning:
-    'Aegifold는 Aegis(보호)와 Folding(겹쳐 쌓기)을 합친 이름입니다. 실행에서 배운 것을 다음 실행에 쌓아 복리를 만듭니다.',
+    'Aegifold는 Aegis(보호)와 Folding(겹쳐 쌓기)을 합친 이름입니다. 실행에서 얻은 지식과 배움을 다음 실행의 기반으로 쌓는다는 뜻입니다.',
   companyAttitude:
-    'Aegifold Technologies는 문제를 깊이 이해하고, 작은 실행과 1원칙 사고를 함께 씁니다.',
+    'Aegifold는 문제를 깊이 이해하고, 작은 실행에서 얻은 배움을 다음 실행에 남깁니다.',
   primaryValue: '1원칙 사고',
   description:
-    '문제를 깊이 이해하고, 1원칙으로 생각하며, 작게 실행합니다. 실행에서 얻은 배움을 다음 실행에 쌓습니다.',
+    '문제를 깊이 이해하고, 작은 실행에서 얻은 지식과 배움을 다음 성과의 기반으로 쌓습니다.',
   location: 'Seoul · Remote friendly',
   github: 'https://github.com/aegifold',
   principles: [

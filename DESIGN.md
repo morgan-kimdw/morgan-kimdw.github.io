@@ -10,9 +10,9 @@
 
 ## Brand
 
-- Core line: “Aegifold Technologies, The Compounding Company”.
-- Name: “Aegifold = Aegis + Folding = 보호 + 복리”. Protect what matters, then layer execution and learning until they compound.
-- Company attitude: “Aegifold Technologies는 문제를 깊이 이해하고, 작은 실행과 1원칙 사고를 함께 씁니다.”
+- Core line: “Aegifold — The Compounding Company”.
+- Name: “Aegifold = Aegis + Folding = 보호 + 복리”. 실행에서 얻은 지식과 배움을 다음 실행의 기반으로 쌓는다.
+- Company attitude: “Aegifold는 문제를 깊이 이해하고, 작은 실행에서 얻은 배움을 다음 실행에 남깁니다.”
 - Logo: use the approved black-and-white interwoven shield/compounding mark from `public/static/images/logo.png`; never substitute a letter mark.
 - Personality: candid, technically rigorous, calm, and builder-led.
 - Trust signals: authored engineering stories, observable execution loops, concrete first-principles decisions, and a transparent Co-founder invitation.
@@ -20,7 +20,7 @@
 
 ## Product goals
 
-- Goals: show how the company observes, thinks from first principles, learns, and executes; help readers discover credible technical work; make the Co-founder opportunity easy to evaluate; connect articles to the company mission.
+- Goals: help visitors understand that Aegifold makes each execution improve the next; show how the company observes, thinks from first principles, learns, and executes; make the Co-founder opportunity easy to evaluate.
 - Non-goals: applicant tracking, collecting applicant PII, a database CMS, a social network, or a visual clone of another engineering site.
 - Success signals: visitors understand the promise within five seconds, read a story as evidence, inspect the Co-founder responsibility, and never see draft content.
 
@@ -90,6 +90,7 @@
 
 - Tone: direct Korean, concrete verbs, short declarative sentences, and respectful second person only where useful.
 - Terminology: “글”, “회사”, “채용”, “1원칙 사고”, “배움”, “온톨로지”; use Co-founder only as the role name, explain Signal/Noise once on the Company page, and avoid decorative English outside the brand line.
+- Compounding means retained knowledge, systems, and execution learning. In Korean, prefer “다음 실행”, “다음 성과의 기반”, and “쌓다” over an unexplained financial metaphor.
 - Microcopy rules: use positive, affirmative language; state what happens after an action; label external destinations; present the Co-founder role only when its content status is open.
 
 ## Implementation constraints
