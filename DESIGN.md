@@ -60,7 +60,7 @@
 
 - Existing components to reuse: `Link`, `Image`, `ThemeSwitch`, `SearchButton`, `MobileNav`, `Comments`, `MDXComponents`, and the three article layouts.
 - New/changed components: editorial hero, story card, company principle list, simple job card, article context/related stories, and accessible skip link.
-- Variants and states: story cards support featured/compact; job cards support open/closed; actions support primary/quiet; empty careers state remains informative.
+- Variants and states: story cards support featured/compact, keep their summaries visible, and use the full card as one link; job cards support open/closed; actions support primary/quiet; empty careers state remains informative.
 - Token/component ownership: color/type/spacing tokens live in `css/tailwind.css`; content and company facts live under `data/**`; route composition stays in `app/**`.
 
 ## Accessibility

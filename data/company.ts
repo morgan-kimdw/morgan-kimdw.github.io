@@ -4,9 +4,6 @@ export const company = {
   coreBrandLine: 'Aegifold — The Compounding Company',
   tagline: 'The Compounding Company',
   coreStatement: '한 번의 실행이 다음 실행을 더 낫게 만듭니다.',
-  nameFormula: 'Aegifold = Aegis + Folding = 보호 + 복리',
-  nameMeaning:
-    'Aegifold는 Aegis(보호)와 Folding(겹쳐 쌓기)을 합친 이름입니다. 실행에서 얻은 지식과 배움을 다음 실행의 기반으로 쌓는다는 뜻입니다.',
   companyAttitude:
     'Aegifold는 문제를 깊이 이해하고, 작은 실행에서 얻은 배움을 다음 실행에 남깁니다.',
   primaryValue: '1원칙 사고',

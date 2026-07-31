@@ -32,12 +32,6 @@ export default function CompanyPage() {
           <p className="mt-8 max-w-2xl text-xl leading-9 font-medium text-gray-800 dark:text-gray-100">
             {company.companyAttitude}
           </p>
-          <p className="mt-6 text-sm font-semibold tracking-[0.08em] text-gray-950 dark:text-white">
-            {company.nameFormula}
-          </p>
-          <p className="mt-5 max-w-2xl leading-8 text-gray-600 dark:text-gray-300">
-            {company.nameMeaning}
-          </p>
         </div>
       </section>
 

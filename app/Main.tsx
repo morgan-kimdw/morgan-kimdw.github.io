@@ -46,9 +46,14 @@ export default function Home({ posts }: HomeProps) {
       {leadStory && (
         <section className="py-12 sm:py-16" aria-labelledby="featured-title">
           <div className="mb-10 flex items-end justify-between gap-6">
-            <h2 id="featured-title" className="text-3xl font-semibold tracking-tight sm:text-4xl">
-              우리가 해 본 일
-            </h2>
+            <div>
+              <h2 id="featured-title" className="text-3xl font-semibold tracking-tight sm:text-4xl">
+                우리가 해 본 일
+              </h2>
+              <p className="mt-3 text-base leading-7 text-gray-600 dark:text-gray-300">
+                작게 실행하고, 결과에서 배운 것을 기록합니다.
+              </p>
+            </div>
             <Link
               href="/blog"
               className="text-primary-600 dark:text-primary-400 hidden text-sm font-semibold sm:inline-flex"
