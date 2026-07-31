@@ -22,20 +22,23 @@ export default function Home({ posts }: HomeProps) {
       >
         <div className="lg:col-span-8">
           <p className="text-primary-600 dark:text-primary-400 mb-6 text-sm font-semibold tracking-[0.18em] uppercase">
-            {company.name}
+            {company.coreBrandLine}
           </p>
           <h1
             id="home-title"
-            className="max-w-5xl text-4xl leading-[1.05] font-semibold text-gray-950 sm:text-6xl lg:text-7xl dark:text-white"
+            className="max-w-5xl text-4xl leading-[1.08] font-semibold text-gray-950 sm:text-5xl lg:text-6xl dark:text-white"
           >
-            모든 문제를
-            <br className="hidden sm:block" />
-            근본에서 해결합니다.
+            <span className="block">지켜야 할 것을 보호하고,</span>
+            <span className="block">실행과 배움을 겹겹이 쌓아</span>
+            <span className="block">복리를 만듭니다.</span>
           </h1>
         </div>
         <div className="flex flex-col justify-end lg:col-span-4">
-          <p className="max-w-xl text-lg leading-8 text-gray-600 dark:text-gray-300">
-            {company.description}
+          <p className="max-w-xl text-lg leading-8 font-medium text-gray-800 dark:text-gray-100">
+            {company.companyAttitude}
+          </p>
+          <p className="mt-4 max-w-xl leading-7 text-gray-600 dark:text-gray-300">
+            {company.nameMeaning}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
@@ -65,7 +68,7 @@ export default function Home({ posts }: HomeProps) {
                 id="featured-title"
                 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl"
               >
-                우리가 오래 고민한 문제
+                오래 붙잡은 문제들
               </h2>
             </div>
             <Link
@@ -152,7 +155,7 @@ export default function Home({ posts }: HomeProps) {
             id="principles-title"
             className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl"
           >
-            회사가 지키는 가장 중요한 가치
+            우리가 지키는 가장 중요한 기준
           </h2>
           <p className="mt-4 text-xl font-semibold text-gray-950 dark:text-white">
             {company.primaryValue}
@@ -161,7 +164,7 @@ export default function Home({ posts }: HomeProps) {
             href="/company"
             className="text-primary-600 dark:text-primary-400 mt-6 inline-flex min-h-11 items-center font-semibold"
           >
-            회사와 팀 알아보기 →
+            회사가 일하는 방식 보기 →
           </Link>
         </div>
         <ol className="grid gap-8 lg:col-span-8 lg:grid-cols-3">
@@ -189,11 +192,11 @@ export default function Home({ posts }: HomeProps) {
         </div>
         <div className="lg:col-span-8">
           <h2 id="author-title" className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            Signal을 정하고, 작게 실행하고 배웁니다.
+            Signal을 정하고, 실행과 배움을 복리로 쌓습니다.
           </h2>
           <p className="mt-4 max-w-2xl leading-7 text-gray-600 dark:text-gray-300">
-            온톨로지는 개념과 관계를 드러내는 지도이고, AI는 그 지도를 빠르게 시험하는 실행계입니다.
-            결과를 배우는 순간 1원칙 사고로 의미를 다시 분해하고, 다음 실행을 고릅니다.
+            온톨로지는 개념과 관계를 드러내는 지도이고, AI는 그 지도를 빠르게 시험하는 실행
+            시스템입니다. 결과에서 배운 뒤 1원칙 사고로 의미를 다시 분해하고, 다음 실행을 고릅니다.
           </p>
           <p className="mt-4 max-w-2xl border-l-2 border-gray-950 pl-4 font-semibold text-gray-950 dark:border-white dark:text-white">
             {company.signalNoiseRule}

@@ -6,10 +6,14 @@
 - Last refreshed: 2026-07-30
 - Primary product surfaces: `/`, `/company`, `/careers`, `/careers/[slug]`, `/blog`, `/blog/[...slug]`
 - Evidence reviewed: `.omx/plans/hiring-website-upgrade-prd.md`, current App Router pages, `components/**`, `layouts/**`, `css/tailwind.css`, `data/siteMetadata.js`, current logo/favicons/content images, and the information architecture of `toss.tech`
-- Company identity is expressed as “Aegifold Technologies” from one replaceable metadata object.
+- Company identity and its proposition are expressed from the centralized `data/company.ts` object.
 
 ## Brand
 
+- Core line: “Aegifold Technologies, The Compounding Company”.
+- Name: “Aegifold = Aegis + Folding = 보호 + 복리”. Protect what matters, then layer execution and learning until they compound.
+- Company attitude: “Aegifold Technologies는 모든 문제를 깊이 이해하고 해결하려 합니다. 실행과 1원칙 사고의 조화를 중요하게 여깁니다.”
+- Logo: use the approved black-and-white interwoven shield/compounding mark from `public/static/images/logo.png`; never substitute a letter mark.
 - Personality: candid, technically rigorous, calm, and builder-led.
 - Trust signals: authored engineering stories, observable execution loops, concrete first-principles decisions, and a transparent Co-founder invitation.
 - Avoid: copying Toss’s visual language, generic startup gradients, stock-office photography, inflated claims, vanity metrics, and decorative motion that competes with reading.

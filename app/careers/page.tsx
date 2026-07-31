@@ -5,7 +5,7 @@ import { company } from '@/data/company'
 
 export const metadata = genPageMetadata({
   title: 'Co-founder',
-  description: `${company.name}의 공동창업자 기준을 확인하세요.`,
+  description: `${company.name}와 실행과 배움의 복리를 함께 만들 Co-founder 기회`,
 })
 
 const publicJobs = allJobs
@@ -18,11 +18,11 @@ export default function CareersPage() {
       <header className="max-w-3xl">
         <p className="text-signal-700 dark:text-signal-300 text-sm font-semibold">Co-founder</p>
         <h1 className="mt-4 text-4xl font-semibold tracking-normal text-gray-950 sm:text-5xl dark:text-gray-50">
-          모든 문제를 근본에서 해결할 Co-founder를 찾습니다.
+          지켜야 할 것을 보호하고, 복리를 함께 만들 Co-founder를 찾습니다.
         </h1>
         <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-          온톨로지가 드러내는 구조와 AI의 작동 원리를 이해하고, 관찰과 1원칙 사고, 학습과 실행의
-          루프로 근본 문제를 함께 풀어갈 창업 파트너를 기다립니다.
+          온톨로지가 드러내는 구조와 AI가 실제로 작동하는 조건을 이해하고, 관찰과 1원칙 사고, 작은
+          실행과 학습을 다음 실행에 쌓아갈 창업 파트너를 기다립니다.
         </p>
       </header>
 
@@ -33,14 +33,14 @@ export default function CareersPage() {
               id="open-roles"
               className="text-2xl font-semibold tracking-normal text-gray-950 dark:text-gray-50"
             >
-              지금 열려 있는 단 하나의 기회
+              지금 함께할 Co-founder
             </h2>
             <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
               회사의 방향, 소유권, 위험, 실행을 함께 책임지는 Co-founder 자리입니다.
             </p>
           </div>
           <p className="text-sm font-medium text-gray-500 dark:text-gray-400">
-            {publicJobs.length}개 자리
+            Co-founder 기회 {publicJobs.length}개
           </p>
         </div>
 

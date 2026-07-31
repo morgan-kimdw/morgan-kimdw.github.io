@@ -1,3 +1,4 @@
+import Image from '@/components/Image'
 import Link from '@/components/Link'
 import { company } from '@/data/company'
 import { genPageMetadata } from '@/app/seo'
@@ -15,14 +16,34 @@ export default function CompanyPage() {
           <p className="text-primary-600 dark:text-primary-400 text-sm font-semibold tracking-[0.18em] uppercase">
             Company
           </p>
+          <Image
+            src="/static/images/logo.png"
+            alt="Aegifold Technologies 로고"
+            width={128}
+            height={128}
+            priority
+            className="mt-8 h-24 w-24 object-cover sm:h-32 sm:w-32"
+          />
         </div>
         <div className="lg:col-span-8">
-          <h1 className="max-w-4xl text-5xl leading-[1.02] font-semibold sm:text-7xl">
-            모든 문제를
-            <br />
-            근본에서 해결합니다.
+          <p className="text-primary-600 dark:text-primary-400 text-sm font-semibold tracking-[0.14em]">
+            {company.coreBrandLine}
+          </p>
+          <h1 className="mt-5 max-w-4xl text-4xl leading-[1.08] font-semibold sm:text-6xl">
+            지켜야 할 것을 보호하고,
+            <br className="hidden sm:block" />
+            실행과 배움을 쌓아 복리를 만듭니다.
           </h1>
-          <p className="mt-8 max-w-2xl text-xl leading-9 text-gray-600 dark:text-gray-300">
+          <p className="mt-8 max-w-2xl text-xl leading-9 font-medium text-gray-800 dark:text-gray-100">
+            {company.companyAttitude}
+          </p>
+          <p className="mt-6 text-sm font-semibold tracking-[0.08em] text-gray-950 dark:text-white">
+            {company.nameFormula}
+          </p>
+          <p className="mt-5 max-w-2xl leading-8 text-gray-600 dark:text-gray-300">
+            {company.nameMeaning}
+          </p>
+          <p className="mt-5 max-w-2xl leading-8 text-gray-600 dark:text-gray-300">
             {company.mission}
           </p>
         </div>
@@ -38,7 +59,7 @@ export default function CompanyPage() {
           </h2>
           <p className="mt-4 max-w-sm leading-7 text-gray-600 dark:text-gray-300">
             가장 중요한 가치는 {company.primaryValue}입니다. 관찰한 사실을 끝까지 생각하고, 작게
-            실행합니다. 결과를 배우는 순간 1원칙 사고로 다음 실행을 고릅니다.
+            실행합니다. 결과에서 배운 뒤 1원칙 사고로 다음 실행을 고릅니다.
           </p>
           <p className="mt-4 max-w-sm font-semibold text-gray-950 dark:text-white">
             {company.signalNoiseRule}
@@ -71,7 +92,7 @@ export default function CompanyPage() {
             People and stories
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-            관찰 가능한 실행과 학습으로 회사를 설명합니다.
+            실행과 배움의 기록으로 회사를 보여줍니다.
           </h2>
           <p className="mt-4 max-w-2xl leading-7 text-gray-600 dark:text-gray-300">
             글에는 전제, 관찰, 판단, 실행 결과가 함께 드러납니다. 온톨로지, AI 시스템, 1원칙 사고가
@@ -83,7 +104,7 @@ export default function CompanyPage() {
             엔지니어링 스토리 읽기 →
           </Link>
           <Link href="/careers" className="font-semibold text-gray-700 dark:text-gray-200">
-            공동창업자 조건 →
+            Co-founder 기회 알아보기 →
           </Link>
         </div>
       </section>
@@ -92,14 +113,14 @@ export default function CompanyPage() {
         <div>
           <p className="text-sm text-gray-500 dark:text-gray-400">{company.location}</p>
           <h2 className="mt-2 text-3xl font-semibold tracking-tight">
-            근본 문제를 함께 붙잡을 사람
+            근본 문제를 함께 풀 Co-founder
           </h2>
         </div>
         <Link
           href="/careers"
           className="bg-primary-600 hover:bg-primary-700 inline-flex min-h-12 items-center self-start px-5 font-semibold text-white sm:self-auto"
         >
-          공동창업자 조건 보기
+          Co-founder 기회 알아보기
         </Link>
       </section>
     </div>

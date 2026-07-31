@@ -1,3 +1,4 @@
+import Image from '@/components/Image'
 import Link from '@/components/Link'
 import MobileNav from '@/components/MobileNav'
 import SearchButton from '@/components/SearchButton'
@@ -13,12 +14,15 @@ export default function Header() {
         aria-label={`${siteMetadata.headerTitle} 홈`}
         className="inline-flex min-h-11 min-w-0 items-center gap-3 font-semibold"
       >
-        <span
+        <Image
+          src="/static/images/logo.png"
+          alt=""
+          width={36}
+          height={36}
+          priority
           aria-hidden="true"
-          className="bg-primary-600 dark:bg-primary-400 flex h-8 w-8 shrink-0 items-center justify-center text-sm font-bold text-white dark:text-gray-950"
-        >
-          A
-        </span>
+          className="h-9 w-9 shrink-0 object-cover"
+        />
         <span className="hidden truncate text-sm sm:inline lg:text-base">
           {siteMetadata.headerTitle}
         </span>
