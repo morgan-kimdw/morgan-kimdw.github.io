@@ -49,7 +49,7 @@ export default function JobDetail({ job, children }: JobDetailProps) {
               </div>
               <div>
                 <dt className="font-medium text-gray-950 dark:text-gray-100">참여 형태</dt>
-                <dd className="mt-1 text-gray-600 dark:text-gray-300">Co-founder · 전업</dd>
+                <dd className="mt-1 text-gray-600 dark:text-gray-300">Co-founder · Full time</dd>
               </div>
             </dl>
             <Link

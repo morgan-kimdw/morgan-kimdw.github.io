@@ -11,7 +11,7 @@ export default function JobCard({ job }: JobCardProps) {
       <div className="grid gap-6 sm:grid-cols-12">
         <div className="sm:col-span-9">
           <p className="text-sm font-semibold text-gray-500 dark:text-gray-400">
-            Co-founder · 전업
+            Co-founder · Full time
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-normal text-gray-950 dark:text-gray-50">
             <Link href={`/careers/${job.slug}`} aria-label={`${job.title} 안내 보기`}>

@@ -24,7 +24,7 @@ export default function CareersPage() {
         </h1>
         <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
           회사의 방향, 소유권, 위험, 실행을 함께 책임지는 자리입니다. 온톨로지와 AI가 실제로
-          작동하는 방식을 이해하고, 작은 실행에서 함께 배우고 싶은 분과 대화합니다.
+          작동하는 방식을 이해하고, 작은 실행에서 함께 배우고 싶은 분을 찾습니다.
         </p>
       </header>
 
