@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "capturedAt": "2026-07-31T07:12:19.258Z",
+  "capturedAt": "2026-07-31T09:43:37.509Z",
   "git": {
-    "branch": "agent/modernize-hiring-blog-platform",
-    "commit": "f8ba670a19e7000dbeeb44cab58f3e3dee9deff9"
+    "branch": "HEAD",
+    "commit": "06f41b4d7c4594573acb1a88ae2844f7f9358a9a"
   },
   "runtime": {
     "node": "v22.23.1",
@@ -14,13 +14,13 @@
       "totalFiles": 61,
       "mdxFiles": 61,
       "markdownFiles": 0,
-      "explicitDraftTrue": 34,
-      "explicitDraftFalse": 27,
-      "mdxDraftTrue": 34,
-      "mdxDraftFalse": 27,
+      "explicitDraftTrue": 54,
+      "explicitDraftFalse": 7,
+      "mdxDraftTrue": 54,
+      "mdxDraftFalse": 7,
       "mdxMissingDraft": 0,
-      "publishedMdx": 27,
-      "publicCandidateMdx": 27,
+      "publishedMdx": 7,
+      "publicCandidateMdx": 7,
       "markdownPreservedOnly": 0,
       "missingDraftField": 0,
       "gitTracked": 61,
@@ -28,29 +28,9 @@
     },
     "untrackedPaths": [],
     "publishedBlogRoutes": [
-      "/blog/backend/deploy-nestjs-application-on-heroku-system",
-      "/blog/backend/graphql-arrays-n-lists",
-      "/blog/backend/graphql-connections-n-pagination",
-      "/blog/backend/graphql-mutations",
-      "/blog/backend/graphql-queries",
-      "/blog/backend/graphql-queries-for-interactions",
       "/blog/essay/ai-does-not-replace-context",
       "/blog/essay/founding-is-enduring-reality",
       "/blog/essay/thinking-about-fundamental",
-      "/blog/frontend/create-native-like-image-slider-component",
-      "/blog/frontend/etc",
-      "/blog/frontend/flat-color-token-object-for-vanilla-extract",
-      "/blog/frontend/how-to-make-advent-calendar",
-      "/blog/frontend/implement-reflow-prevented-lazy-loading-image-component",
-      "/blog/frontend/making-full-page-scroll-effect",
-      "/blog/frontend/optimize-script-loading-on-react",
-      "/blog/frontend/optimizing-nextjs-application",
-      "/blog/frontend/pagetransition-animation-using-framer-motion",
-      "/blog/frontend/ways-to-optimize-your-nextjs-application",
-      "/blog/funtional/declarative-programming-part1",
-      "/blog/funtional/declarative-programming-part2",
-      "/blog/funtional/what-is-throttle-debounce",
-      "/blog/good-fe-engineer/become-good-fe-engineer-00",
       "/blog/language/fundamental-javascript",
       "/blog/retrospect/retrospect-2024",
       "/blog/review/automation-for-work",
@@ -58,29 +38,9 @@
     ],
     "missingDraftPaths": [],
     "publicCandidateMdxRoutes": [
-      "/blog/backend/deploy-nestjs-application-on-heroku-system",
-      "/blog/backend/graphql-arrays-n-lists",
-      "/blog/backend/graphql-connections-n-pagination",
-      "/blog/backend/graphql-mutations",
-      "/blog/backend/graphql-queries",
-      "/blog/backend/graphql-queries-for-interactions",
       "/blog/essay/ai-does-not-replace-context",
       "/blog/essay/founding-is-enduring-reality",
       "/blog/essay/thinking-about-fundamental",
-      "/blog/frontend/create-native-like-image-slider-component",
-      "/blog/frontend/etc",
-      "/blog/frontend/flat-color-token-object-for-vanilla-extract",
-      "/blog/frontend/how-to-make-advent-calendar",
-      "/blog/frontend/implement-reflow-prevented-lazy-loading-image-component",
-      "/blog/frontend/making-full-page-scroll-effect",
-      "/blog/frontend/optimize-script-loading-on-react",
-      "/blog/frontend/optimizing-nextjs-application",
-      "/blog/frontend/pagetransition-animation-using-framer-motion",
-      "/blog/frontend/ways-to-optimize-your-nextjs-application",
-      "/blog/funtional/declarative-programming-part1",
-      "/blog/funtional/declarative-programming-part2",
-      "/blog/funtional/what-is-throttle-debounce",
-      "/blog/good-fe-engineer/become-good-fe-engineer-00",
       "/blog/language/fundamental-javascript",
       "/blog/retrospect/retrospect-2024",
       "/blog/review/automation-for-work",
@@ -220,7 +180,10 @@
     "siteUrl": "https://morgan-kimdw.github.io",
     "commentsProvider": "giscus",
     "searchProvider": "kbar",
-    "analyticsProviders": ["googleAnalytics", "umamiAnalytics"]
+    "analyticsProviders": [
+      "googleAnalytics",
+      "umamiAnalytics"
+    ]
   },
   "packageJson": {
     "packageManager": "yarn@4.18.0",
@@ -301,159 +264,96 @@
     "feedFiles": [
       {
         "path": "public/feed.xml",
-        "bytes": 15062,
-        "itemCount": 27,
+        "bytes": 4543,
+        "itemCount": 7,
         "urlCount": 0
       },
       {
         "path": "public/tags/ai/feed.xml",
-        "bytes": 2013,
-        "itemCount": 2,
-        "urlCount": 0
-      },
-      {
-        "path": "public/tags/algebraic-effect/feed.xml",
-        "bytes": 1872,
-        "itemCount": 2,
-        "urlCount": 0
-      },
-      {
-        "path": "public/tags/animation/feed.xml",
-        "bytes": 1795,
+        "bytes": 2034,
         "itemCount": 2,
         "urlCount": 0
       },
       {
         "path": "public/tags/automation/feed.xml",
-        "bytes": 1143,
-        "itemCount": 1,
-        "urlCount": 0
-      },
-      {
-        "path": "public/tags/backend/feed.xml",
-        "bytes": 1195,
+        "bytes": 1167,
         "itemCount": 1,
         "urlCount": 0
       },
       {
         "path": "public/tags/context/feed.xml",
-        "bytes": 1362,
+        "bytes": 1386,
         "itemCount": 1,
         "urlCount": 0
       },
       {
-        "path": "public/tags/declarative/feed.xml",
-        "bytes": 1867,
-        "itemCount": 2,
-        "urlCount": 0
-      },
-      {
         "path": "public/tags/essay/feed.xml",
-        "bytes": 2519,
+        "bytes": 2537,
         "itemCount": 3,
-        "urlCount": 0
-      },
-      {
-        "path": "public/tags/frontend/feed.xml",
-        "bytes": 5854,
-        "itemCount": 10,
-        "urlCount": 0
-      },
-      {
-        "path": "public/tags/graphql/feed.xml",
-        "bytes": 3162,
-        "itemCount": 5,
         "urlCount": 0
       },
       {
         "path": "public/tags/javascript/feed.xml",
-        "bytes": 2255,
-        "itemCount": 3,
+        "bytes": 1191,
+        "itemCount": 1,
         "urlCount": 0
       },
       {
         "path": "public/tags/leadership/feed.xml",
-        "bytes": 2021,
+        "bytes": 2042,
         "itemCount": 2,
         "urlCount": 0
       },
       {
         "path": "public/tags/linguistics/feed.xml",
-        "bytes": 1168,
+        "bytes": 1192,
         "itemCount": 1,
         "urlCount": 0
       },
       {
         "path": "public/tags/ontology/feed.xml",
-        "bytes": 1363,
+        "bytes": 1387,
         "itemCount": 1,
-        "urlCount": 0
-      },
-      {
-        "path": "public/tags/optimization/feed.xml",
-        "bytes": 1200,
-        "itemCount": 1,
-        "urlCount": 0
-      },
-      {
-        "path": "public/tags/relay/feed.xml",
-        "bytes": 3160,
-        "itemCount": 5,
         "urlCount": 0
       },
       {
         "path": "public/tags/retrospect/feed.xml",
-        "bytes": 1149,
+        "bytes": 1173,
         "itemCount": 1,
         "urlCount": 0
       },
       {
         "path": "public/tags/review/feed.xml",
-        "bytes": 1695,
+        "bytes": 1716,
         "itemCount": 2,
         "urlCount": 0
       },
       {
         "path": "public/tags/startup/feed.xml",
-        "bytes": 1315,
-        "itemCount": 1,
-        "urlCount": 0
-      },
-      {
-        "path": "public/tags/typescript/feed.xml",
-        "bytes": 1271,
+        "bytes": 1339,
         "itemCount": 1,
         "urlCount": 0
       }
     ],
     "searchJson": {
       "path": "public/search.json",
-      "bytes": 49823,
-      "documents": 27
+      "bytes": 16946,
+      "documents": 7
     },
     "tagData": {
       "path": "app/tag-data.json",
       "tags": [
         "ai",
-        "algebraic-effect",
-        "animation",
         "automation",
-        "backend",
         "context",
-        "declarative",
         "essay",
-        "frontend",
-        "graphql",
         "javascript",
         "leadership",
         "linguistics",
         "ontology",
-        "optimization",
-        "relay",
         "retrospect",
         "review",
-        "startup",
-        "typescript"
+        "startup"
       ]
     }
   },
@@ -461,13 +361,15 @@
     "nextBuildManifest": {
       "path": ".next/build-manifest.json",
       "bytes": 510,
-      "pages": ["/_app"]
+      "pages": [
+        "/_app"
+      ]
     },
     "nextRoutesManifest": {
       "path": ".next/routes-manifest.json",
       "bytes": 5384
     },
-    "publicAssetBytes": 13012105
+    "publicAssetBytes": 13968543
   },
   "environmentContract": {
     "nvmrc": "v24.18.0",

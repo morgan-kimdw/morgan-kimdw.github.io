@@ -36,6 +36,9 @@ describe('public content selector', () => {
   })
 
   it('matches generated search and RSS membership', () => {
+    const contentBaseline = JSON.parse(
+      readFileSync('tests/fixtures/content-manifest-baseline.json', 'utf8')
+    )
     const generatedBlogs = JSON.parse(
       readFileSync('.contentlayer/generated/Blog/_index.json', 'utf8')
     )
@@ -50,7 +53,7 @@ describe('public content selector', () => {
       .map((match) => match[1])
       .sort()
 
-    assert.equal(expectedSlugs.length, 27)
+    assert.equal(expectedSlugs.length, contentBaseline.counts.publishedMdx)
     assert.deepEqual(searchSlugs, expectedSlugs)
     assert.deepEqual(feedSlugs, expectedSlugs)
   })
