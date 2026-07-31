@@ -41,6 +41,9 @@ export default function CompanyPage() {
             실행합니다. 결과를 배우는 순간 1원칙 사고로 다음 실행을 고릅니다.
           </p>
           <p className="mt-4 max-w-sm font-semibold text-gray-950 dark:text-white">
+            {company.signalNoiseRule}
+          </p>
+          <p className="mt-4 max-w-sm leading-7 text-gray-600 dark:text-gray-300">
             {company.executionRule}
           </p>
         </div>

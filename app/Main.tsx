@@ -189,13 +189,16 @@ export default function Home({ posts }: HomeProps) {
         </div>
         <div className="lg:col-span-8">
           <h2 id="author-title" className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            작게 실행하고 배웁니다. 배울 때 철학이 작동합니다.
+            Signal을 정하고, 작게 실행하고 배웁니다.
           </h2>
           <p className="mt-4 max-w-2xl leading-7 text-gray-600 dark:text-gray-300">
             온톨로지는 개념과 관계를 드러내는 지도이고, AI는 그 지도를 빠르게 시험하는 실행계입니다.
             결과를 배우는 순간 1원칙 사고로 의미를 다시 분해하고, 다음 실행을 고릅니다.
           </p>
           <p className="mt-4 max-w-2xl border-l-2 border-gray-950 pl-4 font-semibold text-gray-950 dark:border-white dark:text-white">
+            {company.signalNoiseRule}
+          </p>
+          <p className="mt-4 max-w-2xl leading-7 text-gray-600 dark:text-gray-300">
             {company.executionRule}
           </p>
           <ol className="mt-6 flex flex-wrap gap-2" aria-label="Aegifold 실행 루프">

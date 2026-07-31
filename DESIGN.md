@@ -35,7 +35,8 @@
 ## Design principles
 
 - Evidence before slogans: lead with articles, practices, and role details instead of superlatives.
-- High Signal / Noise: shrink problems into work that can be executed today or within 18 hours, then learn from observable results.
+- High Signal / Noise: choose the 3–5 mission-critical outcomes for the next 18 waking hours, spend at least 80% of attention completing them, and treat anything that blocks or distracts from completion as Noise.
+- Small execution and learning: turn each chosen Signal into work that can start today, learn from the result, and use first-principles thinking to select the next execution.
 - Reading is the product: typography, spacing, and focus order take priority over ornamental UI.
 - One clear next step: each section has at most one primary action.
 - Editorial work and the Co-founder invitation reinforce each other without forcing a conversion.
