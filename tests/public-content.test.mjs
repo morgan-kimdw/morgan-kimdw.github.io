@@ -35,6 +35,26 @@ describe('public content selector', () => {
     assert.deepEqual(getPublishedPosts(candidates, now), [published])
   })
 
+  it('evaluates date-only posts on the Asia/Seoul editorial calendar', () => {
+    const dateOnly = post({ date: '2026-07-24' })
+
+    assert.equal(isPublishedPost(dateOnly, new Date('2026-07-23T14:59:59.999Z')), false)
+    assert.equal(isPublishedPost(dateOnly, new Date('2026-07-23T15:00:00.000Z')), true)
+    assert.equal(isPublishedPost(dateOnly, new Date('2026-07-24T14:59:59.999Z')), true)
+  })
+
+  it('preserves exact timestamp semantics for full publication dates', () => {
+    const timestamped = post({ date: '2026-07-24T00:00:00.000Z' })
+
+    assert.equal(isPublishedPost(timestamped, new Date('2026-07-23T15:00:00.000Z')), false)
+    assert.equal(isPublishedPost(timestamped, new Date('2026-07-24T00:00:00.000Z')), true)
+  })
+
+  it('rejects invalid date-only calendar values', () => {
+    assert.equal(isPublishedPost(post({ date: '2026-02-29' }), now), false)
+    assert.equal(isPublishedPost(post({ date: '2026-13-01' }), now), false)
+  })
+
   it('matches generated search and RSS membership', () => {
     const contentBaseline = JSON.parse(
       readFileSync('tests/fixtures/content-manifest-baseline.json', 'utf8')

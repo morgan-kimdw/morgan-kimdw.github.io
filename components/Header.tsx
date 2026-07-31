@@ -15,7 +15,7 @@ export default function Header() {
         className="inline-flex min-h-11 min-w-0 items-center gap-3 font-semibold"
       >
         <Image
-          src="/static/images/logo.png"
+          src="/static/images/logo-header.png"
           alt=""
           width={36}
           height={36}

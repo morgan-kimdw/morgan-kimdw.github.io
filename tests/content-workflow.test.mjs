@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import { execFileSync } from 'node:child_process'
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { mkdir } from 'node:fs/promises'
 import os from 'node:os'
 import path from 'node:path'
@@ -49,6 +49,18 @@ Body text stays untouched.
 function commitAll(root) {
   git(root, ['add', '.'])
   git(root, ['commit', '-m', 'fixture'])
+}
+
+function makeBareRemote() {
+  const remoteRoot = mkdtempSync(path.join(os.tmpdir(), 'content-workflow-remote-'))
+  tempRoots.push(remoteRoot)
+  const remotePath = path.join(remoteRoot, 'origin.git')
+  git(remoteRoot, ['init', '--bare', remotePath])
+  return remotePath
+}
+
+function remoteBranchHead(remotePath, branch = 'main') {
+  return git(remotePath, ['rev-parse', branch])
 }
 
 afterEach(() => {
@@ -275,6 +287,71 @@ draft: false
     assert.deepEqual(committedPaths, ['data/blog/team/hiring-notes.mdx'])
     assert.equal(result.audit.commitOrWorktree, result.committedSha)
     assert.equal(result.audit.outcome, 'published-and-committed')
+  })
+
+  it('rejects --push from a feature branch without changing the target remote', async () => {
+    const root = await makeRepo()
+    const remotePath = makeBareRemote()
+    writePost(root, 'data/blog/team/hiring-notes.mdx')
+    commitAll(root)
+    git(root, ['branch', '-M', 'main'])
+    git(root, ['remote', 'add', 'origin', remotePath])
+    git(root, ['push', '-u', 'origin', 'main'])
+    const remoteBefore = remoteBranchHead(remotePath)
+
+    git(root, ['checkout', '-b', 'feature/publishing'])
+    writeFileSync(path.join(root, 'README.md'), 'feature branch work\n')
+    commitAll(root)
+    const localHeadBefore = git(root, ['rev-parse', 'HEAD'])
+    const sourceBefore = readFileSync(path.join(root, 'data/blog/team/hiring-notes.mdx'), 'utf8')
+    const auditPath = path.join(root, '.omx/audit/test-publishing.jsonl')
+
+    assert.throws(
+      () =>
+        publishContentFile({
+          root,
+          selectedPath: 'data/blog/team/hiring-notes.mdx',
+          auditPath: '.omx/audit/test-publishing.jsonl',
+          commit: true,
+          push: true,
+          remote: 'origin',
+          branch: 'main',
+        }),
+      /Refusing to push publication from branch feature\/publishing to main/
+    )
+    assert.equal(remoteBranchHead(remotePath), remoteBefore)
+    assert.equal(git(root, ['rev-parse', 'HEAD']), localHeadBefore)
+    assert.equal(
+      readFileSync(path.join(root, 'data/blog/team/hiring-notes.mdx'), 'utf8'),
+      sourceBefore
+    )
+    assert.equal(existsSync(auditPath), false)
+  })
+
+  it('pushes a single publication commit from the target branch', async () => {
+    const root = await makeRepo()
+    const remotePath = makeBareRemote()
+    writePost(root, 'data/blog/team/hiring-notes.mdx')
+    commitAll(root)
+    git(root, ['branch', '-M', 'main'])
+    git(root, ['remote', 'add', 'origin', remotePath])
+    git(root, ['push', '-u', 'origin', 'main'])
+    const remoteBefore = remoteBranchHead(remotePath)
+
+    const result = publishContentFile({
+      root,
+      selectedPath: 'data/blog/team/hiring-notes.mdx',
+      auditPath: '.omx/audit/test-publishing.jsonl',
+      commit: true,
+      push: true,
+      remote: 'origin',
+      branch: 'main',
+    })
+
+    assert.equal(result.pushed, true)
+    assert.equal(remoteBranchHead(remotePath), result.committedSha)
+    assert.equal(git(root, ['rev-parse', `${result.committedSha}^1`]), remoteBefore)
+    assert.equal(result.audit.outcome, 'published-and-pushed')
   })
 
   it('dry-runs without modifying content or audit files', async () => {

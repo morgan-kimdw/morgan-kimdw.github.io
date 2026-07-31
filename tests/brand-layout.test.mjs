@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { execFileSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
-import { existsSync, readdirSync, readFileSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import path from 'node:path'
 import { describe, it } from 'node:test'
 
@@ -9,6 +9,17 @@ const root = new URL('../', import.meta.url)
 
 function read(relativePath) {
   return readFileSync(new URL(`../${relativePath}`, import.meta.url), 'utf8')
+}
+
+function readPngDimensions(relativePath) {
+  const png = readFileSync(new URL(`../${relativePath}`, import.meta.url))
+
+  assert.equal(png.subarray(1, 4).toString('ascii'), 'PNG')
+
+  return {
+    width: png.readUInt32BE(16),
+    height: png.readUInt32BE(20),
+  }
 }
 
 function projectTextFiles() {
@@ -80,7 +91,9 @@ describe('Aegifold company identity', () => {
     assert.doesNotMatch(headerNav, /\/about|작성자/)
     assert.match(headerNav, /title: '채용'/)
     assert.doesNotMatch(headerNav, /공동창업자/)
-    assert.match(header, /src="\/static\/images\/logo\.png"/)
+    assert.match(header, /src="\/static\/images\/logo-header\.png"/)
+    assert.doesNotMatch(header, /src="\/static\/images\/logo\.png"/)
+    assert.doesNotMatch(header, /src="\/static\/favicons\/apple-touch-icon\.png"/)
     assert.doesNotMatch(header, />\s*A\s*<\/span>/)
     assert.match(companyPage, /company\.coreBrandLine/)
     assert.match(companyPage, /company\.companyAttitude/)
@@ -92,8 +105,23 @@ describe('Aegifold company identity', () => {
     assert.match(author, /name: Aegifold Technologies/)
     assert.doesNotMatch(author, /avatar:|email:|linkedin:|github:|Kim, Dong-Wook/)
     assert.doesNotMatch(`${company}\n${author}\n${metadata}`, /지켜야 할 것을 보호하고/)
+    assert.match(
+      metadata,
+      /siteLogo: `\$\{process\.env\.BASE_PATH \|\| ''\}\/static\/images\/logo\.png`/
+    )
+    assert.match(
+      metadata,
+      /socialBanner: `\$\{process\.env\.BASE_PATH \|\| ''\}\/static\/images\/logo\.png`/
+    )
 
     const logo = readFileSync(new URL('../public/static/images/logo.png', import.meta.url))
+    assert.deepEqual(readPngDimensions('public/static/images/logo-header.png'), {
+      width: 96,
+      height: 96,
+    })
+    assert.ok(
+      statSync(new URL('../public/static/images/logo-header.png', import.meta.url)).size <= 10000
+    )
     assert.equal(
       createHash('sha256').update(logo).digest('hex'),
       '1818d35201035d281c719cb3df8f445c5852dacfd6c934fd60e8da40c79684c7'

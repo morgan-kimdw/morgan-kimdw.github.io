@@ -513,10 +513,51 @@ Not-tested: Remote deployment is verified by the hosting pipeline`
   return runGit(root, ['rev-parse', 'HEAD'])
 }
 
-function pushPublishedCommit(root, remote = 'origin', branch = 'main') {
+function getPublicationTarget(root, remote, branch) {
   if (!/^[A-Za-z0-9._/-]+$/.test(remote) || !/^[A-Za-z0-9._/-]+$/.test(branch)) {
     throw new Error('Unsafe Git remote or branch')
   }
+
+  const currentBranch = runGit(root, ['branch', '--show-current'])
+  if (currentBranch !== branch) {
+    throw new Error(
+      `Refusing to push publication from branch ${currentBranch || 'DETACHED'} to ${branch}`
+    )
+  }
+
+  const remoteHead = runGit(root, ['ls-remote', '--heads', remote, `refs/heads/${branch}`])
+    .split(/\s+/, 1)[0]
+    ?.trim()
+  if (!/^[0-9a-f]{40}$/.test(remoteHead)) {
+    throw new Error(`Refusing to push publication because ${remote}/${branch} was not found`)
+  }
+
+  return remoteHead
+}
+
+function preflightPublishedCommitPush(root, remote = 'origin', branch = 'main') {
+  const remoteHead = getPublicationTarget(root, remote, branch)
+  const localHead = runGit(root, ['rev-parse', 'HEAD'])
+  if (localHead !== remoteHead) {
+    throw new Error(
+      `Refusing to push publication unless ${branch} matches the current ${remote}/${branch}`
+    )
+  }
+
+  return remoteHead
+}
+
+function pushPublishedCommit(root, expectedRemoteHead, remote = 'origin', branch = 'main') {
+  const remoteHead = getPublicationTarget(root, remote, branch)
+
+  const localHead = runGit(root, ['rev-parse', 'HEAD'])
+  const firstParent = runGit(root, ['rev-parse', 'HEAD^1'])
+  if (remoteHead !== expectedRemoteHead || localHead === remoteHead || firstParent !== remoteHead) {
+    throw new Error(
+      `Refusing to push publication unless HEAD is exactly one commit atop ${remote}/${branch}`
+    )
+  }
+
   runGit(root, ['push', remote, `HEAD:${branch}`])
 }
 
@@ -557,6 +598,7 @@ export function publishContentFile({
   }
 
   if (push && !commit) throw new Error('--push requires --commit')
+  const expectedRemoteHead = push ? preflightPublishedCommitPush(root, remote, branch) : null
   if (changed && !dryRun) {
     writeFileSync(absolutePath, updatedSource)
     validateContentFile({ root, selectedPath: normalized })
@@ -565,7 +607,7 @@ export function publishContentFile({
   let committedSha = null
   if (changed && !dryRun && commit) {
     committedSha = commitSelectedFile(root, normalized, commitMessage)
-    if (push) pushPublishedCommit(root, remote, branch)
+    if (push && expectedRemoteHead) pushPublishedCommit(root, expectedRemoteHead, remote, branch)
   }
 
   const audit = appendAudit({
