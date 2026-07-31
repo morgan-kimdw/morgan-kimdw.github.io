@@ -7,6 +7,7 @@ import type { Blog } from 'contentlayer/generated'
 import Link from '@/components/Link'
 import siteMetadata from '@/data/siteMetadata'
 import { getPaginationBasePath } from '@/lib/pagination.mjs'
+import { articlePurpose } from '@/lib/content/article-display.mjs'
 
 interface PaginationProps {
   totalPages: number
@@ -73,10 +74,11 @@ export default function ListLayoutWithTags({
         <h1 className="text-4xl font-semibold text-gray-950 sm:text-6xl dark:text-white">
           {title}
         </h1>
+        <p className="mt-4 max-w-xl leading-7 text-gray-600 dark:text-gray-300">{articlePurpose}</p>
       </header>
       <ul className="divide-y divide-gray-300 dark:divide-gray-700">
         {displayPosts.map((post) => {
-          const { path, date, title, summary } = post
+          const { path, date, displayTitle, summary } = post
           return (
             <li key={path} className="py-8 sm:py-10">
               <article className="grid gap-4 sm:grid-cols-12">
@@ -94,7 +96,7 @@ export default function ListLayoutWithTags({
                       href={`/${path}`}
                       className="hover:text-primary-600 dark:hover:text-primary-400 text-gray-950 dark:text-white"
                     >
-                      {title}
+                      {displayTitle}
                     </Link>
                   </h2>
                   <div className="mt-4 max-w-2xl leading-7 text-gray-600 dark:text-gray-300">

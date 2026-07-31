@@ -23,8 +23,8 @@ const postDateTemplate: Intl.DateTimeFormatOptions = {
 interface LayoutProps {
   content: CoreContent<Blog>
   authorDetails: CoreContent<Authors>[]
-  next?: { path: string; title: string }
-  prev?: { path: string; title: string }
+  next?: Pick<CoreContent<Blog>, 'path' | 'displayTitle'>
+  prev?: Pick<CoreContent<Blog>, 'path' | 'displayTitle'>
   related?: CoreContent<Blog>[]
   children: ReactNode
 }
@@ -37,7 +37,7 @@ export default function PostLayout({
   related,
   children,
 }: LayoutProps) {
-  const { filePath, path, slug, date, title, summary, readingTime, comments } = content
+  const { filePath, path, slug, date, displayTitle, summary, readingTime, comments } = content
   const basePath = path.split('/')[0]
   const commentsEnabled = isCommentsAvailable(siteMetadata.comments, comments !== false)
 
@@ -59,7 +59,7 @@ export default function PostLayout({
                 </div>
               </dl>
               <div>
-                <PageTitle>{title}</PageTitle>
+                <PageTitle>{displayTitle}</PageTitle>
               </div>
               {summary && (
                 <p className="mx-auto max-w-3xl pt-4 text-lg leading-8 text-gray-600 dark:text-gray-300">
@@ -125,7 +125,7 @@ export default function PostLayout({
                           이전 글
                         </h2>
                         <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
-                          <Link href={`/${prev.path}`}>{prev.title}</Link>
+                          <Link href={`/${prev.path}`}>{prev.displayTitle}</Link>
                         </div>
                       </div>
                     )}
@@ -135,7 +135,7 @@ export default function PostLayout({
                           다음 글
                         </h2>
                         <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
-                          <Link href={`/${next.path}`}>{next.title}</Link>
+                          <Link href={`/${next.path}`}>{next.displayTitle}</Link>
                         </div>
                       </div>
                     )}

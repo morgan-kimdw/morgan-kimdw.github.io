@@ -13,7 +13,7 @@ describe('public structured data', () => {
 
     assert.ok(publicBlogs.length > 0)
     assert.ok(publicBlogs.every((post) => post.structuredData['@type'] === 'BlogPosting'))
-    assert.ok(publicBlogs.every((post) => post.structuredData.headline === post.title))
+    assert.ok(publicBlogs.every((post) => post.structuredData.headline === post.displayTitle))
     assert.ok(publicBlogs.every((post) => post.structuredData.url.includes(`/${post.path}`)))
   })
 

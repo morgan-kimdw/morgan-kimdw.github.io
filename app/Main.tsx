@@ -4,6 +4,7 @@ import type { CoreContent } from 'pliny/utils/contentlayer'
 import Link from '@/components/Link'
 import StoryCard from '@/components/home/StoryCard'
 import { company } from '@/data/company'
+import { articlePurpose } from '@/lib/content/article-display.mjs'
 
 interface HomeProps {
   posts: CoreContent<Blog>[]
@@ -51,7 +52,7 @@ export default function Home({ posts }: HomeProps) {
                 우리가 해 본 일
               </h2>
               <p className="mt-3 text-base leading-7 text-gray-600 dark:text-gray-300">
-                작게 실행하고, 결과에서 배운 것을 기록합니다.
+                {articlePurpose}
               </p>
             </div>
             <Link

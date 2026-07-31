@@ -25,6 +25,7 @@ import rehypePresetMinify from 'rehype-preset-minify'
 import siteMetadata from './data/siteMetadata'
 import { company } from './data/company'
 import { getPublishedPosts } from './lib/content/public-content.mjs'
+import { getArticleDisplayTitle, toArticleDisplay } from './lib/content/article-display.mjs'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js'
 import type { MDXDocument } from 'pliny/utils/contentlayer.js'
 import prettier from 'prettier'
@@ -61,6 +62,11 @@ const computedFields: ComputedFields = {
   toc: { type: 'json', resolve: (doc) => extractTocHeadings(doc.body.raw) },
 }
 
+const blogComputedFields: ComputedFields = {
+  ...computedFields,
+  displayTitle: { type: 'string', resolve: (doc) => getArticleDisplayTitle(doc.title) },
+}
+
 const jobStatuses = ['open', 'closed'] as const
 const employmentTypes = ['FULL_TIME', 'PART_TIME', 'CONTRACTOR', 'INTERN'] as const
 const workingModes = ['ONSITE', 'HYBRID', 'REMOTE'] as const
@@ -92,6 +98,7 @@ function assertApplicationUrl(value: string) {
  */
 type GeneratedBlog = MDXDocument & {
   date: string
+  displayTitle: string
   draft?: boolean
   slug: string
   tags?: string[]
@@ -128,7 +135,7 @@ function createSearchIndex(allBlogs: GeneratedBlog[]) {
   ) {
     writeFileSync(
       `public/${path.basename(siteMetadata.search.kbarConfig.searchDocumentsPath)}`,
-      JSON.stringify(allCoreContent(sortPosts(getPublishedPosts(allBlogs))))
+      JSON.stringify(allCoreContent(sortPosts(getPublishedPosts(allBlogs))).map(toArticleDisplay))
     )
     console.log('Local search index generated...')
   }
@@ -157,13 +164,13 @@ export const Blog = defineDocumentType(() => ({
     hero: { type: 'string' },
   },
   computedFields: {
-    ...computedFields,
+    ...blogComputedFields,
     structuredData: {
       type: 'json',
       resolve: (doc) => ({
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
-        headline: doc.title,
+        headline: getArticleDisplayTitle(doc.title),
         datePublished: doc.date,
         dateModified: doc.lastmod || doc.date,
         description: doc.summary,

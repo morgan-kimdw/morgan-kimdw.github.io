@@ -14,13 +14,13 @@ import { isCommentsAvailable } from '@/lib/comments/config.mjs'
 interface LayoutProps {
   content: CoreContent<Blog>
   children: ReactNode
-  next?: { path: string; title: string }
-  prev?: { path: string; title: string }
+  next?: Pick<CoreContent<Blog>, 'path' | 'displayTitle'>
+  prev?: Pick<CoreContent<Blog>, 'path' | 'displayTitle'>
   related?: CoreContent<Blog>[]
 }
 
 export default function PostLayout({ content, next, prev, related, children }: LayoutProps) {
-  const { path, slug, date, title, summary, readingTime, comments } = content
+  const { path, slug, date, displayTitle, summary, readingTime, comments } = content
   const commentsEnabled = isCommentsAvailable(siteMetadata.comments, comments !== false)
 
   return (
@@ -39,7 +39,7 @@ export default function PostLayout({ content, next, prev, related, children }: L
                 </div>
               </dl>
               <div>
-                <PageTitle>{title}</PageTitle>
+                <PageTitle>{displayTitle}</PageTitle>
               </div>
               {summary && (
                 <p className="mx-auto max-w-3xl pt-4 text-lg leading-8 text-gray-600 dark:text-gray-300">
@@ -62,9 +62,9 @@ export default function PostLayout({ content, next, prev, related, children }: L
                     <Link
                       href={`/${prev.path}`}
                       className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                      aria-label={`Previous post: ${prev.title}`}
+                      aria-label={`Previous post: ${prev.displayTitle}`}
                     >
-                      &larr; {prev.title}
+                      &larr; {prev.displayTitle}
                     </Link>
                   </div>
                 )}
@@ -73,9 +73,9 @@ export default function PostLayout({ content, next, prev, related, children }: L
                     <Link
                       href={`/${next.path}`}
                       className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                      aria-label={`Next post: ${next.title}`}
+                      aria-label={`Next post: ${next.displayTitle}`}
                     >
-                      {next.title} &rarr;
+                      {next.displayTitle} &rarr;
                     </Link>
                   </div>
                 )}

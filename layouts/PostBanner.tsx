@@ -15,13 +15,13 @@ import { isCommentsAvailable } from '@/lib/comments/config.mjs'
 interface LayoutProps {
   content: CoreContent<Blog>
   children: ReactNode
-  next?: { path: string; title: string }
-  prev?: { path: string; title: string }
+  next?: Pick<CoreContent<Blog>, 'path' | 'displayTitle'>
+  prev?: Pick<CoreContent<Blog>, 'path' | 'displayTitle'>
   related?: CoreContent<Blog>[]
 }
 
 export default function PostMinimal({ content, next, prev, related, children }: LayoutProps) {
-  const { slug, title, images, summary, readingTime, comments } = content
+  const { slug, displayTitle, images, summary, readingTime, comments } = content
   const displayImage = images?.[0]
   const commentsEnabled = isCommentsAvailable(siteMetadata.comments, comments !== false)
 
@@ -35,13 +35,13 @@ export default function PostMinimal({ content, next, prev, related, children }: 
               <div className="w-full">
                 <Bleed>
                   <div className="relative aspect-2/1 w-full">
-                    <Image src={displayImage} alt={title} fill className="object-cover" />
+                    <Image src={displayImage} alt={displayTitle} fill className="object-cover" />
                   </div>
                 </Bleed>
               </div>
             )}
             <div className="relative pt-10">
-              <PageTitle>{title}</PageTitle>
+              <PageTitle>{displayTitle}</PageTitle>
               {summary && (
                 <p className="mx-auto mt-4 max-w-3xl text-lg leading-8 text-gray-600 dark:text-gray-300">
                   {summary}
@@ -60,9 +60,9 @@ export default function PostMinimal({ content, next, prev, related, children }: 
                   <Link
                     href={`/${prev.path}`}
                     className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                    aria-label={`Previous post: ${prev.title}`}
+                    aria-label={`Previous post: ${prev.displayTitle}`}
                   >
-                    &larr; {prev.title}
+                    &larr; {prev.displayTitle}
                   </Link>
                 </div>
               )}
@@ -71,9 +71,9 @@ export default function PostMinimal({ content, next, prev, related, children }: 
                   <Link
                     href={`/${next.path}`}
                     className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                    aria-label={`Next post: ${next.title}`}
+                    aria-label={`Next post: ${next.displayTitle}`}
                   >
-                    {next.title} &rarr;
+                    {next.displayTitle} &rarr;
                   </Link>
                 </div>
               )}

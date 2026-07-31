@@ -2,6 +2,7 @@ import ListLayout from '@/layouts/ListLayoutWithTags'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 import { allBlogs } from 'contentlayer/generated'
 import { getPublishedPosts } from '@/lib/content/public-content.mjs'
+import { toArticleDisplay } from '@/lib/content/article-display.mjs'
 import { notFound } from 'next/navigation'
 
 const POSTS_PER_PAGE = 5
@@ -15,7 +16,7 @@ export const generateStaticParams = async () => {
 
 export default async function Page(props: { params: Promise<{ page: string }> }) {
   const params = await props.params
-  const posts = allCoreContent(sortPosts(getPublishedPosts(allBlogs)))
+  const posts = allCoreContent(sortPosts(getPublishedPosts(allBlogs))).map(toArticleDisplay)
   const pageNumber = parseInt(params.page as string)
   const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE)
 

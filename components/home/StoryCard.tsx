@@ -32,7 +32,7 @@ export default function StoryCard({ post, featured = false }: StoryCardProps) {
                 : 'text-2xl leading-snug font-semibold text-gray-950 dark:text-white'
             }`}
           >
-            {post.title}
+            {post.displayTitle}
           </h3>
           {post.summary && (
             <p

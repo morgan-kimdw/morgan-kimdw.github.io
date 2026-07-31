@@ -34,7 +34,7 @@ export default function ArticleFooter({ related = [] }: ArticleFooterProps) {
                   className="group flex min-h-16 items-center justify-between gap-4 py-4"
                 >
                   <span className="group-hover:text-primary-600 dark:group-hover:text-primary-400 font-medium text-gray-800 dark:text-gray-100">
-                    {post.title}
+                    {post.displayTitle}
                   </span>
                   <span aria-hidden="true" className="text-gray-400">
                     ↗

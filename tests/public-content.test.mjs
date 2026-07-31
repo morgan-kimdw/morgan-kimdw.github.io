@@ -48,6 +48,9 @@ describe('public content selector', () => {
     const searchSlugs = JSON.parse(readFileSync('public/search.json', 'utf8'))
       .map(({ slug }) => slug)
       .sort()
+    const searchTitles = JSON.parse(readFileSync('public/search.json', 'utf8')).map(
+      ({ title }) => title
+    )
     const feed = readFileSync('public/feed.xml', 'utf8')
     const feedSlugs = [...feed.matchAll(/<guid>[^<]+\/blog\/([^<]+)<\/guid>/g)]
       .map((match) => match[1])
@@ -56,6 +59,8 @@ describe('public content selector', () => {
     assert.equal(expectedSlugs.length, contentBaseline.counts.publishedMdx)
     assert.deepEqual(searchSlugs, expectedSlugs)
     assert.deepEqual(feedSlugs, expectedSlugs)
+    assert.ok(searchTitles.every((title) => !/^\s*\[(?:후기|FEops)\]/iu.test(title)))
+    assert.doesNotMatch(feed, /<title>\s*\[(?:후기|FEops)\]/iu)
   })
 
   it('derives tag counts and sitemap URLs from the same membership', () => {

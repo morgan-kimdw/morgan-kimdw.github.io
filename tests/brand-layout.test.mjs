@@ -112,7 +112,7 @@ describe('home editorial layout', () => {
     assert.doesNotMatch(storyCard, /<h3[\s\S]*?<Link/)
     assert.match(home, /grid gap-8 lg:grid-cols-12 lg:items-start/)
     assert.match(home, /className="space-y-8 lg:col-span-5"/)
-    assert.match(home, /작게 실행하고, 결과에서 배운 것을 기록합니다\./)
+    assert.match(home, /articlePurpose/)
     assert.match(home, /채용 보기/)
   })
 })

@@ -13,6 +13,7 @@ import PostBanner from '@/layouts/PostBanner'
 import { Metadata } from 'next'
 import siteMetadata from '@/data/siteMetadata'
 import { getPublishedPosts } from '@/lib/content/public-content.mjs'
+import { toArticleDisplay } from '@/lib/content/article-display.mjs'
 import { notFound } from 'next/navigation'
 
 const defaultLayout = 'PostLayout'
@@ -50,10 +51,10 @@ export async function generateMetadata(props: {
   })
 
   return {
-    title: post.title,
+    title: post.displayTitle,
     description: post.summary,
     openGraph: {
-      title: post.title,
+      title: post.displayTitle,
       description: post.summary,
       siteName: siteMetadata.title,
       locale: 'ko_KR',
@@ -66,7 +67,7 @@ export async function generateMetadata(props: {
     },
     twitter: {
       card: 'summary_large_image',
-      title: post.title,
+      title: post.displayTitle,
       description: post.summary,
       images: imageList,
     },
@@ -83,7 +84,7 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
   const params = await props.params
   const slug = decodeURI(params.slug.join('/'))
   const publicBlogs = getPublishedPosts(allBlogs)
-  const sortedCoreContents = allCoreContent(sortPosts(publicBlogs))
+  const sortedCoreContents = allCoreContent(sortPosts(publicBlogs)).map(toArticleDisplay)
   const postIndex = sortedCoreContents.findIndex((p) => p.slug === slug)
   if (postIndex === -1) {
     return notFound()
@@ -97,7 +98,7 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
     const authorResults = allAuthors.find((p) => p.slug === author)
     return coreContent(authorResults as Authors)
   })
-  const mainContent = coreContent(post)
+  const mainContent = toArticleDisplay(coreContent(post))
   const related = sortedCoreContents
     .filter(
       (candidate) =>
