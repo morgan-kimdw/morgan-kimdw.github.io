@@ -13,7 +13,7 @@ interface StoryCardProps {
 export default function StoryCard({ post, featured = false }: StoryCardProps) {
   return (
     <article
-      className={`group flex h-full flex-col justify-between border-t border-gray-300 py-6 dark:border-gray-700 ${
+      className={`group flex flex-col border-t border-gray-300 py-6 dark:border-gray-700 ${
         featured ? 'lg:pr-12' : ''
       }`}
     >

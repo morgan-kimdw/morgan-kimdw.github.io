@@ -18,7 +18,7 @@ export default function JobCard({ job }: JobCardProps) {
         <div className="space-y-3">
           <div className="flex flex-wrap items-center gap-2 text-sm">
             <span className="bg-signal-300 rounded-full px-3 py-1 font-medium text-gray-950">
-              열린 포지션
+              열린 자리
             </span>
             <span className="text-gray-500 dark:text-gray-400">{job.team}</span>
           </div>

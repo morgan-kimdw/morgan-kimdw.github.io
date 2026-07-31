@@ -5,7 +5,7 @@ import packageJson from '@/package.json'
 export const dynamic = 'force-static'
 export const runtime = 'nodejs'
 
-const service = 'moel-engineering'
+const service = 'aegifold-technologies'
 const release = process.env.RELEASE_SHA || process.env.NEXT_PUBLIC_RELEASE_SHA || 'development'
 
 export function GET() {

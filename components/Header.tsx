@@ -7,19 +7,21 @@ import siteMetadata from '@/data/siteMetadata'
 
 export default function Header() {
   return (
-    <header className="bg-paper/95 dark:bg-ink/95 flex min-h-20 w-full items-center justify-between border-b border-gray-300 dark:border-gray-800">
+    <header className="bg-paper/95 dark:bg-ink/95 flex min-h-16 w-full items-center justify-between border-b border-gray-300 dark:border-gray-800">
       <Link
         href="/"
         aria-label={`${siteMetadata.headerTitle} 홈`}
-        className="inline-flex min-h-11 items-center gap-3 font-semibold"
+        className="inline-flex min-h-11 min-w-0 items-center gap-3 font-semibold"
       >
         <span
           aria-hidden="true"
-          className="bg-primary-600 dark:bg-primary-400 flex h-8 w-8 items-center justify-center text-sm font-bold text-white dark:text-gray-950"
+          className="bg-primary-600 dark:bg-primary-400 flex h-8 w-8 shrink-0 items-center justify-center text-sm font-bold text-white dark:text-gray-950"
         >
-          M
+          A
         </span>
-        <span className="hidden sm:inline">{siteMetadata.headerTitle}</span>
+        <span className="hidden truncate text-sm sm:inline lg:text-base">
+          {siteMetadata.headerTitle}
+        </span>
       </Link>
       <div className="flex items-center gap-2 sm:gap-4">
         <nav

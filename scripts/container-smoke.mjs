@@ -39,7 +39,7 @@ function parseArgs(argv) {
 function usage() {
   return `Usage:
   node scripts/container-smoke.mjs --url http://127.0.0.1:3000 [--release <sha>]
-  node scripts/container-smoke.mjs --image moel-engineering:smoke [--release <sha>] [--port 3317]
+  node scripts/container-smoke.mjs --image aegifold-technologies:smoke [--release <sha>] [--port 3317]
   node scripts/container-smoke.mjs --container <name-or-id> --url http://127.0.0.1:3000 [--release <sha>]
 `
 }
@@ -89,7 +89,7 @@ async function waitForHealth(baseUrl, timeoutMs = 45_000) {
 async function fetchText(baseUrl, path) {
   const response = await fetch(new URL(path, baseUrl), {
     cache: 'no-store',
-    headers: { 'user-agent': 'moel-container-smoke/1.0' },
+    headers: { 'user-agent': 'aegifold-container-smoke/1.0' },
     redirect: 'manual',
   })
   const body = await response.text()
@@ -145,7 +145,7 @@ function inspectContainerUser(container) {
 
 function startContainer({ image, port, release, secretCanary }) {
   requireDocker()
-  const name = `moel-container-smoke-${process.pid}-${Date.now()}`
+  const name = `aegifold-container-smoke-${process.pid}-${Date.now()}`
   const result = docker([
     'run',
     '--detach',

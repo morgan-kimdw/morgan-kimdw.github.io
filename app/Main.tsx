@@ -2,7 +2,6 @@ import type { Blog } from 'contentlayer/generated'
 import type { CoreContent } from 'pliny/utils/contentlayer'
 
 import CareerCallout from '@/components/CareerCallout'
-import Image from '@/components/Image'
 import Link from '@/components/Link'
 import StoryCard from '@/components/home/StoryCard'
 import { company } from '@/data/company'
@@ -18,7 +17,7 @@ export default function Home({ posts }: HomeProps) {
   return (
     <div className="pb-12">
       <section
-        className="grid gap-10 border-b border-gray-300 py-16 sm:py-24 lg:grid-cols-12 lg:py-32 dark:border-gray-700"
+        className="grid gap-8 border-b border-gray-300 py-10 sm:py-14 lg:grid-cols-12 lg:py-16 dark:border-gray-700"
         aria-labelledby="home-title"
       >
         <div className="lg:col-span-8">
@@ -27,11 +26,11 @@ export default function Home({ posts }: HomeProps) {
           </p>
           <h1
             id="home-title"
-            className="max-w-5xl text-5xl leading-[0.98] font-semibold text-gray-950 sm:text-7xl lg:text-[5.75rem] dark:text-white"
+            className="max-w-5xl text-4xl leading-[1.05] font-semibold text-gray-950 sm:text-6xl lg:text-7xl dark:text-white"
           >
-            만드는 과정까지
-            <br />
-            우리의 제품입니다.
+            모든 문제를
+            <br className="hidden sm:block" />
+            근본에서 해결합니다.
           </h1>
         </div>
         <div className="flex flex-col justify-end lg:col-span-4">
@@ -43,20 +42,20 @@ export default function Home({ posts }: HomeProps) {
               href="/blog"
               className="hover:bg-primary-600 dark:hover:bg-primary-300 inline-flex min-h-12 items-center bg-gray-950 px-5 font-semibold text-white transition-colors dark:bg-white dark:text-gray-950"
             >
-              기술 이야기 읽기
+              글 읽기
             </Link>
             <Link
               href="/careers"
               className="hover:border-primary-600 hover:text-primary-600 dark:hover:border-primary-400 dark:hover:text-primary-400 inline-flex min-h-12 items-center border border-gray-400 px-5 font-semibold text-gray-900 transition-colors dark:border-gray-600 dark:text-white"
             >
-              함께 일하기
+              Co-founder로 함께하기
             </Link>
           </div>
         </div>
       </section>
 
       {leadStory && (
-        <section className="py-16 sm:py-24" aria-labelledby="featured-title">
+        <section className="py-12 sm:py-16" aria-labelledby="featured-title">
           <div className="mb-10 flex items-end justify-between gap-6">
             <div>
               <p className="text-xs font-semibold tracking-[0.16em] text-gray-500 uppercase dark:text-gray-400">
@@ -76,11 +75,11 @@ export default function Home({ posts }: HomeProps) {
               모든 글 보기 →
             </Link>
           </div>
-          <div className="grid gap-x-10 lg:grid-cols-12">
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-7">
               <StoryCard post={leadStory} featured />
             </div>
-            <div className="lg:col-span-5">
+            <div className="space-y-8 lg:col-span-5">
               {secondaryStories.map((post) => (
                 <StoryCard key={post.path} post={post} />
               ))}
@@ -90,7 +89,7 @@ export default function Home({ posts }: HomeProps) {
       )}
 
       <section
-        className="border-y border-gray-300 py-16 sm:py-20 dark:border-gray-700"
+        className="border-y border-gray-300 py-12 sm:py-14 dark:border-gray-700"
         aria-labelledby="series-title"
       >
         <div className="grid gap-10 lg:grid-cols-12">
@@ -122,7 +121,7 @@ export default function Home({ posts }: HomeProps) {
         </div>
       </section>
 
-      <section className="py-16 sm:py-24" aria-labelledby="recent-title">
+      <section className="py-12 sm:py-16" aria-labelledby="recent-title">
         <div className="mb-8 flex items-end justify-between gap-6">
           <h2 id="recent-title" className="text-3xl font-semibold tracking-tight sm:text-4xl">
             최근 기록
@@ -142,7 +141,7 @@ export default function Home({ posts }: HomeProps) {
       </section>
 
       <section
-        className="grid gap-10 border-y border-gray-300 py-16 sm:py-20 lg:grid-cols-12 dark:border-gray-700"
+        className="grid gap-10 border-y border-gray-300 py-12 sm:py-14 lg:grid-cols-12 dark:border-gray-700"
         aria-labelledby="principles-title"
       >
         <div className="lg:col-span-4">
@@ -153,8 +152,11 @@ export default function Home({ posts }: HomeProps) {
             id="principles-title"
             className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl"
           >
-            기술보다 오래 남는 기준
+            회사가 지키는 가장 중요한 가치
           </h2>
+          <p className="mt-4 text-xl font-semibold text-gray-950 dark:text-white">
+            {company.primaryValue}
+          </p>
           <Link
             href="/company"
             className="text-primary-600 dark:text-primary-400 mt-6 inline-flex min-h-11 items-center font-semibold"
@@ -178,35 +180,40 @@ export default function Home({ posts }: HomeProps) {
         </ol>
       </section>
 
-      <section className="grid gap-8 py-16 sm:py-20 lg:grid-cols-12" aria-labelledby="author-title">
-        <div className="flex items-center gap-5 lg:col-span-4">
-          <Image
-            src="/static/images/avatar.jpeg"
-            alt="Kim, Dong-Wook"
-            width={88}
-            height={88}
-            className="h-20 w-20 rounded-full object-cover"
-          />
-          <div>
-            <p className="text-xs font-semibold tracking-[0.14em] text-gray-500 uppercase dark:text-gray-400">
-              Written by builders
-            </p>
-            <p className="mt-2 font-semibold">Kim, Dong-Wook</p>
-          </div>
+      <section className="grid gap-8 py-12 sm:py-14 lg:grid-cols-12" aria-labelledby="author-title">
+        <div className="lg:col-span-4">
+          <p className="text-xs font-semibold tracking-[0.14em] text-gray-500 uppercase dark:text-gray-400">
+            First principle
+          </p>
+          <p className="mt-2 text-2xl font-semibold">문제의 이름보다 구조를 먼저 봅니다.</p>
         </div>
         <div className="lg:col-span-8">
           <h2 id="author-title" className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            제품을 만드는 사람이 직접 설명합니다.
+            작게 실행하고 배웁니다. 배울 때 철학이 작동합니다.
           </h2>
           <p className="mt-4 max-w-2xl leading-7 text-gray-600 dark:text-gray-300">
-            결정의 배경과 바뀐 생각을 숨기지 않는 글은 팀을 판단할 수 있는 가장 정직한 채용 정보라고
-            믿습니다.
+            온톨로지는 개념과 관계를 드러내는 지도이고, AI는 그 지도를 빠르게 시험하는 실행계입니다.
+            결과를 배우는 순간 1원칙 사고로 의미를 다시 분해하고, 다음 실행을 고릅니다.
           </p>
+          <p className="mt-4 max-w-2xl border-l-2 border-gray-950 pl-4 font-semibold text-gray-950 dark:border-white dark:text-white">
+            {company.executionRule}
+          </p>
+          <ol className="mt-6 flex flex-wrap gap-2" aria-label="Aegifold 실행 루프">
+            {company.operatingLoop.map((step, index) => (
+              <li
+                key={step}
+                className="border border-gray-300 px-3 py-2 text-sm font-semibold dark:border-gray-700"
+              >
+                <span className="mr-2 text-gray-400">0{index + 1}</span>
+                {step}
+              </li>
+            ))}
+          </ol>
           <Link
-            href="/about"
+            href="/company"
             className="text-primary-600 dark:text-primary-400 mt-5 inline-flex min-h-11 items-center font-semibold"
           >
-            작성자 소개 →
+            회사의 기준 보기 →
           </Link>
         </div>
       </section>

@@ -1,7 +1,5 @@
 import Link from '@/components/Link'
-import SocialIcon from '@/components/social-icons'
 import { company } from '@/data/company'
-import siteMetadata from '@/data/siteMetadata'
 
 export default function Footer() {
   return (
@@ -19,15 +17,13 @@ export default function Footer() {
         >
           <Link href="/blog">스토리</Link>
           <Link href="/company">회사</Link>
-          <Link href="/careers">채용</Link>
+          <Link href="/careers">공동창업자</Link>
           <Link href="/tags">주제</Link>
         </nav>
         <div className="md:col-span-3 md:text-right">
-          <div className="flex gap-4 md:justify-end">
-            <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={6} />
-            <SocialIcon kind="github" href={siteMetadata.github} size={6} />
-            <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={6} />
-          </div>
+          <a href={company.github} className="text-primary-600 dark:text-primary-400 font-semibold">
+            Aegifold GitHub ↗
+          </a>
           <p className="mt-6 text-sm text-gray-500 dark:text-gray-400">
             © {new Date().getFullYear()} {company.shortName}
           </p>

@@ -5,7 +5,7 @@ This project ships as an immutable Next.js standalone container for a single Nod
 ## Build Contract
 
 - Runtime: Node.js `24.18.0`, Yarn `4.18.0`, `NODE_ENV=production`.
-- Build command: `docker build --build-arg RELEASE_SHA=$(git rev-parse --short=12 HEAD) -t moel-engineering:$(git rev-parse --short=12 HEAD) .`
+- Build command: `docker build --build-arg RELEASE_SHA=$(git rev-parse --short=12 HEAD) -t aegifold-technologies:$(git rev-parse --short=12 HEAD) .`
 - Dependency install: `yarn install --immutable`.
 - Runtime user: numeric non-root user `10001:10001`.
 - Runtime filesystem: compatible with `read_only: true`; only `/tmp` and `/app/.next/cache` should be writable tmpfs mounts.
@@ -57,8 +57,8 @@ Back up these inputs, not the container filesystem:
 Canonical content should normally be committed before a release. Because local drafts may still be untracked, also capture a filesystem archive before maintenance:
 
 ```sh
-tar -czf moel-content-backup.tgz data/blog data/jobs data/company.ts public/static
-git bundle create moel-repository.bundle --all
+tar -czf aegifold-content-backup.tgz data/blog data/jobs data/company.ts public/static
+git bundle create aegifold-repository.bundle --all
 ```
 
 Store the archive, Git bundle, deploy configuration export, and encrypted secret backup outside the NAS volume being protected. Never place plaintext `.env` files in the content archive.
@@ -66,8 +66,8 @@ Store the archive, Git bundle, deploy configuration export, and encrypted secret
 Restore into an empty temporary directory first:
 
 ```sh
-git clone moel-repository.bundle restored-site
-tar -xzf moel-content-backup.tgz -C restored-site
+git clone aegifold-repository.bundle restored-site
+tar -xzf aegifold-content-backup.tgz -C restored-site
 cd restored-site
 corepack enable
 yarn install --immutable
@@ -96,8 +96,8 @@ node scripts/container-smoke.mjs --url https://your-domain.example --release <sh
 For a local image:
 
 ```sh
-docker build --build-arg RELEASE_SHA=$(git rev-parse --short=12 HEAD) -t moel-engineering:smoke .
-node scripts/container-smoke.mjs --image moel-engineering:smoke --release $(git rev-parse --short=12 HEAD)
+docker build --build-arg RELEASE_SHA=$(git rev-parse --short=12 HEAD) -t aegifold-technologies:smoke .
+node scripts/container-smoke.mjs --image aegifold-technologies:smoke --release $(git rev-parse --short=12 HEAD)
 ```
 
 The smoke test checks health, representative routes, static assets, search/feed JSON/XML, release identity, secret canary leakage, non-root user, read-only startup, and graceful container stop when Docker is used.

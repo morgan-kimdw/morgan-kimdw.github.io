@@ -21,8 +21,6 @@ const employmentTypeLabels = {
 } as const
 
 export default function JobDetail({ job, children }: JobDetailProps) {
-  const isEmailApplication = job.applyUrl.startsWith('mailto:')
-
   return (
     <article className="pb-20">
       <header className="border-b border-gray-200 pb-10 dark:border-gray-800">
@@ -31,7 +29,7 @@ export default function JobDetail({ job, children }: JobDetailProps) {
             href="/careers"
             className="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 text-sm font-medium"
           >
-            Careers로 돌아가기
+            Co-founder로 돌아가기
           </Link>
         </div>
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
@@ -73,13 +71,10 @@ export default function JobDetail({ job, children }: JobDetailProps) {
               href={job.applyUrl}
               className="bg-primary-600 hover:bg-primary-700 focus-visible:outline-primary-600 dark:bg-primary-500 dark:hover:bg-primary-400 mt-6 inline-flex min-h-11 w-full items-center justify-center rounded-full px-5 text-sm font-semibold text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
             >
-              {isEmailApplication ? '이메일로 지원하기' : '외부 지원 페이지 열기'}
+              Aegifold의 작업 보기
             </Link>
             <p className="mt-3 text-sm leading-6 text-gray-500 dark:text-gray-400">
-              {isEmailApplication
-                ? '메일 작성 화면이 열립니다.'
-                : '외부 채용 서비스에서 지원을 이어갑니다.'}{' '}
-              이 사이트는 지원자 개인정보를 저장하지 않습니다.
+              회사 GitHub 조직에서 공개된 작업과 문제의식을 확인할 수 있습니다.
             </p>
           </aside>
         </div>

@@ -1,6 +1,6 @@
 import type { Instrumentation } from 'next'
 
-const service = 'moel-engineering'
+const service = 'aegifold-technologies'
 
 function releaseIdentity() {
   return process.env.RELEASE_SHA || process.env.NEXT_PUBLIC_RELEASE_SHA || 'development'
@@ -27,7 +27,6 @@ function emit(level: 'info' | 'error', event: string, details: Record<string, un
 export function register() {
   emit('info', 'app.start', {
     runtime: process.env.NEXT_RUNTIME || 'nodejs',
-    nodeVersion: process.version,
   })
 }
 

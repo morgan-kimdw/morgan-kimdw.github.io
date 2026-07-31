@@ -14,24 +14,25 @@ export default function CareerCallout({ compact = false }: CareerCalloutProps) {
       aria-labelledby="career-callout-title"
     >
       <p className="text-signal-700 dark:text-signal-300 text-xs font-semibold tracking-[0.16em] uppercase">
-        Work with us
+        Founder search
       </p>
       <h2
         id="career-callout-title"
         className={`${compact ? 'mt-2 text-xl' : 'mt-3 text-2xl sm:text-3xl'} font-semibold tracking-tight text-gray-950 dark:text-white`}
       >
-        이런 문제를 함께 풀고 싶나요?
+        Co-founder로 모든 문제를 근본에서 해결합니다.
       </h2>
       {!compact && (
         <p className="mt-3 max-w-2xl leading-7 text-gray-600 dark:text-gray-300">
-          {company.name}은 제품의 맥락과 운영의 끝까지 책임질 동료를 찾고 있습니다.
+          온톨로지와 AI의 작동 원리를 이해하고, 작게 실행한 결과에서 배우며 다시 1원칙으로 생각할
+          창업 파트너를 찾습니다.
         </p>
       )}
       <Link
         href="/careers"
         className="text-primary-600 dark:text-primary-400 mt-5 inline-flex min-h-11 items-center gap-2 font-semibold"
       >
-        열린 포지션 보기 <span aria-hidden="true">→</span>
+        공동창업자 조건 보기 <span aria-hidden="true">→</span>
       </Link>
     </aside>
   )

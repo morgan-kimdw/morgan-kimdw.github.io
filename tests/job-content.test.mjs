@@ -16,13 +16,14 @@ describe('job content', () => {
   it('includes required application and JobPosting metadata', () => {
     const [job] = publicJobs
 
-    assert.equal(job.slug, 'frontend-engineer')
-    assert.match(job.applyUrl, /^mailto:/)
+    assert.equal(job.slug, 'co-founder')
+    assert.equal(job.title, 'Co-founder')
+    assert.equal(job.applyUrl, 'https://github.com/aegifold')
     assert.equal(job.structuredData['@type'], 'JobPosting')
-    assert.equal(job.structuredData.hiringOrganization.name, 'Moel Engineering')
-    assert.equal(job.structuredData.url, 'https://morgan-kimdw.github.io/careers/frontend-engineer')
-    assert.equal(job.structuredData.jobLocation.address.addressCountry, 'KR')
-    assert.equal(job.structuredData.jobLocationType, undefined)
+    assert.equal(job.structuredData.hiringOrganization.name, 'Aegifold Technologies')
+    assert.equal(job.structuredData.url, 'https://morgan-kimdw.github.io/careers/co-founder')
+    assert.equal(job.structuredData.jobLocationType, 'TELECOMMUTE')
+    assert.equal(job.structuredData.applicantLocationRequirements.name, 'KR')
     assert.equal(job.validation.ok, true)
   })
 

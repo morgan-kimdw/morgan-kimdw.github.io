@@ -96,6 +96,7 @@ test('health and instrumentation expose only bounded release diagnostics', async
   assert.match(instrumentationSource, /'app\.start'/)
   assert.match(instrumentationSource, /'request\.error'/)
   assert.doesNotMatch(instrumentationSource, /process\.env[),]/)
+  assert.doesNotMatch(instrumentationSource, /process\.version/)
 })
 
 test('container and compose contracts are immutable and non-root', async () => {

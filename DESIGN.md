@@ -6,38 +6,39 @@
 - Last refreshed: 2026-07-30
 - Primary product surfaces: `/`, `/company`, `/careers`, `/careers/[slug]`, `/blog`, `/blog/[...slug]`
 - Evidence reviewed: `.omx/plans/hiring-website-upgrade-prd.md`, current App Router pages, `components/**`, `layouts/**`, `css/tailwind.css`, `data/siteMetadata.js`, current logo/favicons/content images, and the information architecture of `toss.tech`
-- Assumption: until the legal company name and production domain are supplied, the existing “Moel” identity is expressed as “Moel Engineering” from one replaceable metadata object.
+- Company identity is expressed as “Aegifold Technologies” from one replaceable metadata object.
 
 ## Brand
 
 - Personality: candid, technically rigorous, calm, and builder-led.
-- Trust signals: authored engineering stories, concrete working principles, transparent role expectations, visible hiring process, and external application handling.
+- Trust signals: authored engineering stories, observable execution loops, concrete first-principles decisions, and a transparent Co-founder invitation.
 - Avoid: copying Toss’s visual language, generic startup gradients, stock-office photography, inflated claims, vanity metrics, and decorative motion that competes with reading.
 
 ## Product goals
 
-- Goals: show how the company thinks; help engineers discover credible technical work; make open roles easy to evaluate and apply for; connect articles to relevant careers without turning articles into ads.
+- Goals: show how the company observes, thinks from first principles, learns, and executes; help readers discover credible technical work; make the Co-founder opportunity easy to evaluate; connect articles to the company mission.
 - Non-goals: applicant tracking, collecting applicant PII, a database CMS, a social network, or a visual clone of another engineering site.
 - Success signals: article-to-careers navigation, role-detail visits, completed external application clicks, readable long-form content, and zero draft exposure.
 
 ## Personas and jobs
 
-- Primary personas: experienced engineers evaluating the team, curious readers, potential collaborators, and maintainers publishing through Git.
-- User jobs: understand what the team builds; judge engineering quality and culture; find a fitting role; verify expectations and process; read and discuss technical work.
+- Primary personas: curious readers, potential Co-founders, collaborators, and maintainers publishing through Git.
+- User jobs: understand the fundamental problems the company pursues; judge its reasoning and execution quality; evaluate the Co-founder opportunity; read and discuss technical work.
 - Key contexts of use: mobile discovery from shared articles, desktop deep reading, and quick job comparison on a commute.
 
 ## Information architecture
 
-- Primary navigation: Stories, Company, Careers, About; search and theme controls remain utilities.
-- Core routes/screens: editorial home, all stories, tags, company narrative, careers index, job detail, article detail, author profile.
-- Content hierarchy: company proposition → featured work → topic/series discovery → working principles → open roles; article detail → author/series → article → related stories → restrained careers callout → comments.
+- Primary navigation: Stories, Company, Co-founder; search and theme controls remain utilities.
+- Core routes/screens: editorial home, all stories, tags, company narrative, Co-founder index and detail, article detail.
+- Content hierarchy: company proposition → featured work → topic/series discovery → operating loop → Co-founder invitation; article detail → company/series → article → related stories → restrained Co-founder callout → comments.
 
 ## Design principles
 
 - Evidence before slogans: lead with articles, practices, and role details instead of superlatives.
+- High Signal / Noise: shrink problems into work that can be executed today or within 18 hours, then learn from observable results.
 - Reading is the product: typography, spacing, and focus order take priority over ornamental UI.
 - One clear next step: each section has at most one primary action.
-- Editorial and hiring reinforce each other without sharing state or forcing a conversion.
+- Editorial work and the Co-founder invitation reinforce each other without forcing a conversion.
 - Tradeoffs: a smaller component vocabulary and mostly server-rendered UI are preferred over animation-heavy novelty.
 
 ## Visual language
@@ -73,7 +74,7 @@
 ## Interaction states
 
 - Loading: static/server-rendered pages avoid skeletons unless later data becomes dynamic.
-- Empty: careers explains that no role is open and offers an email/contact path; lists state when no story matches.
+- Empty: the Co-founder surface explains when the next conversation is being prepared; lists state when no story matches.
 - Error: invalid job/article slugs use `notFound`; invalid content fails validation before build.
 - Success: external application links clearly indicate the destination; publishing success is a CLI/Git concern.
 - Disabled: closed job actions render as non-interactive status, not a muted link.
@@ -82,8 +83,8 @@
 ## Content voice
 
 - Tone: direct Korean, concrete verbs, short declarative sentences, and respectful second person only where useful.
-- Terminology: “글”, “팀”, “열린 포지션”, “지원하기”, “일하는 방식”; avoid “인재”, “가족”, and exaggerated “혁신”.
-- Microcopy rules: state what happens after an action; label external application destinations; never imply a role is open when its content status is closed or draft.
+- Terminology: “글”, “회사”, “공동창업자”, “대화 시작”, “1원칙”, “온톨로지”; avoid broad hiring language, “인재”, “가족”, and exaggerated “혁신”.
+- Microcopy rules: use positive, affirmative language; state what happens after an action; label external destinations; present the Co-founder role only when its content status is open.
 
 ## Implementation constraints
 
@@ -95,6 +96,6 @@
 
 ## Open questions
 
-- [ ] Replace provisional “Moel Engineering” with the legal company name and production domain / owner: site owner / impact: metadata and copy only.
+- [ ] Confirm production domain and founder contact address / owner: site owner / impact: metadata and copy only.
 - [ ] Confirm the final application destination and recruiting contact / owner: recruiting / impact: job CTA only.
 - [ ] Supply any approved company photography or illustration / owner: brand / impact: optional; launch does not depend on it.

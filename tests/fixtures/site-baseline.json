@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "capturedAt": "2026-07-30T19:23:11.379Z",
+  "capturedAt": "2026-07-31T07:12:19.258Z",
   "git": {
     "branch": "agent/modernize-hiring-blog-platform",
-    "commit": "ef1d648b47e987b8ec58e085ec7e33063b0c6ae4"
+    "commit": "f8ba670a19e7000dbeeb44cab58f3e3dee9deff9"
   },
   "runtime": {
     "node": "v22.23.1",
@@ -207,27 +207,20 @@
       },
       {
         "href": "/careers",
-        "title": "채용"
-      },
-      {
-        "href": "/about",
-        "title": "작성자"
+        "title": "공동창업자"
       }
     ]
   },
   "metadata": {
-    "title": "Moel Engineering",
-    "author": "Moel",
-    "description": "제품을 만들고 운영하며 배운 기준을 기록하는 엔지니어링 팀",
+    "title": "Aegifold Technologies",
+    "author": "Aegifold Technologies",
+    "description": "관찰하고 1원칙으로 생각하며, 배우고 실행해 모든 문제를 근본에서 해결하는 기술 회사",
     "language": "ko-KR",
     "locale": "ko-KR",
     "siteUrl": "https://morgan-kimdw.github.io",
     "commentsProvider": "giscus",
     "searchProvider": "kbar",
-    "analyticsProviders": [
-      "googleAnalytics",
-      "umamiAnalytics"
-    ]
+    "analyticsProviders": ["googleAnalytics", "umamiAnalytics"]
   },
   "packageJson": {
     "packageManager": "yarn@4.18.0",
@@ -468,9 +461,7 @@
     "nextBuildManifest": {
       "path": ".next/build-manifest.json",
       "bytes": 510,
-      "pages": [
-        "/_app"
-      ]
+      "pages": ["/_app"]
     },
     "nextRoutesManifest": {
       "path": ".next/routes-manifest.json",
