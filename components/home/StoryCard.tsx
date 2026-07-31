@@ -18,14 +18,8 @@ export default function StoryCard({ post, featured = false }: StoryCardProps) {
       }`}
     >
       <div>
-        <div className="mb-6 flex items-center gap-3 text-xs font-semibold tracking-[0.14em] text-gray-500 uppercase dark:text-gray-400">
+        <div className="mb-6 text-xs font-semibold tracking-[0.14em] text-gray-500 uppercase dark:text-gray-400">
           <time dateTime={post.date}>{formatDate(post.date, siteMetadata.locale)}</time>
-          {post.tags?.[0] && (
-            <>
-              <span aria-hidden="true">·</span>
-              <span>{post.tags[0]}</span>
-            </>
-          )}
         </div>
         <h3
           className={

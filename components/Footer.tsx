@@ -17,8 +17,7 @@ export default function Footer() {
         >
           <Link href="/blog">스토리</Link>
           <Link href="/company">회사</Link>
-          <Link href="/careers">공동창업자</Link>
-          <Link href="/tags">주제</Link>
+          <Link href="/careers">채용</Link>
         </nav>
         <div className="md:col-span-3 md:text-right">
           <a href={company.github} className="text-primary-600 dark:text-primary-400 font-semibold">

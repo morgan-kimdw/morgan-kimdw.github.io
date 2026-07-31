@@ -1,7 +1,6 @@
 import type { Blog } from 'contentlayer/generated'
 import type { CoreContent } from 'pliny/utils/contentlayer'
 
-import CareerCallout from '@/components/CareerCallout'
 import Link from '@/components/Link'
 
 interface ArticleFooterProps {
@@ -10,7 +9,7 @@ interface ArticleFooterProps {
 
 export default function ArticleFooter({ related = [] }: ArticleFooterProps) {
   return (
-    <div className="space-y-12 py-10">
+    <div className="py-10">
       {related.length > 0 && (
         <section aria-labelledby="related-stories-title">
           <div className="flex items-end justify-between border-b border-gray-300 pb-4 dark:border-gray-700">
@@ -46,7 +45,6 @@ export default function ArticleFooter({ related = [] }: ArticleFooterProps) {
           </ul>
         </section>
       )}
-      <CareerCallout />
     </div>
   )
 }

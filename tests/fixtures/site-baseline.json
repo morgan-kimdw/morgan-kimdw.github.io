@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "capturedAt": "2026-07-31T09:43:37.509Z",
+  "capturedAt": "2026-07-31T10:59:43.686Z",
   "git": {
     "branch": "HEAD",
-    "commit": "06f41b4d7c4594573acb1a88ae2844f7f9358a9a"
+    "commit": "0763952c7b6b895b75059037cd811d0ba9c1fb0b"
   },
   "runtime": {
     "node": "v22.23.1",
@@ -167,7 +167,7 @@
       },
       {
         "href": "/careers",
-        "title": "공동창업자"
+        "title": "채용"
       }
     ]
   },
