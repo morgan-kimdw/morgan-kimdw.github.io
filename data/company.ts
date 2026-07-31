@@ -3,10 +3,10 @@ export const company = {
   shortName: 'Aegifold',
   coreBrandLine: 'Aegifold Technologies, The Compounding Company',
   tagline: 'The Compounding Company',
-  coreStatement: '지켜야 할 것을 보호하고, 실행과 배움을 쌓습니다.',
+  coreStatement: '실행과 배움을 쌓아 복리를 만듭니다.',
   nameFormula: 'Aegifold = Aegis + Folding = 보호 + 복리',
   nameMeaning:
-    'Aegifold는 Aegis(보호)와 Folding(겹쳐 쌓기)을 합친 이름입니다. 지켜야 할 것을 보호하고, 실행에서 배운 것을 다음 실행에 쌓아 복리를 만듭니다.',
+    'Aegifold는 Aegis(보호)와 Folding(겹쳐 쌓기)을 합친 이름입니다. 실행에서 배운 것을 다음 실행에 쌓아 복리를 만듭니다.',
   companyAttitude:
     'Aegifold Technologies는 문제를 깊이 이해하고, 작은 실행과 1원칙 사고를 함께 씁니다.',
   primaryValue: '1원칙 사고',

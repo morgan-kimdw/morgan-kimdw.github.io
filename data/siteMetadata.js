@@ -4,7 +4,7 @@ const siteMetadata = {
   author: 'Aegifold Technologies',
   companyName: 'Aegifold Technologies',
   headerTitle: 'Aegifold Technologies',
-  description: '지켜야 할 것을 보호하고, 깊은 이해와 실행·학습을 쌓아 복리를 만드는 기술 회사',
+  description: '문제를 깊이 이해하고, 1원칙 사고와 실행에서 얻은 배움을 쌓는 기술 회사',
   language: 'ko-KR',
   theme: 'system', // system, dark or light
   siteUrl: 'https://morgan-kimdw.github.io',

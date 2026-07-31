@@ -51,9 +51,11 @@ describe('Aegifold company identity', () => {
     const headerNav = read('data/headerNavLinks.ts')
     const about = read('app/about/page.tsx')
     const author = read('data/authors/default.mdx')
+    const metadata = read('data/siteMetadata.js')
 
     assert.match(company, /name: 'Aegifold Technologies'/)
     assert.match(company, /coreBrandLine: 'Aegifold Technologies, The Compounding Company'/)
+    assert.match(company, /coreStatement: '실행과 배움을 쌓아 복리를 만듭니다\.'/)
     assert.match(company, /문제를 깊이 이해하고, 작은 실행과 1원칙 사고를 함께 씁니다/)
     assert.match(company, /Aegis\(보호\)와 Folding\(겹쳐 쌓기\)/)
     assert.match(company, /Aegifold = Aegis \+ Folding = 보호 \+ 복리/)
@@ -91,6 +93,7 @@ describe('Aegifold company identity', () => {
     assert.match(about, /redirect\('\/company'\)/)
     assert.match(author, /name: Aegifold Technologies/)
     assert.doesNotMatch(author, /avatar:|email:|linkedin:|github:|Kim, Dong-Wook/)
+    assert.doesNotMatch(`${company}\n${author}\n${metadata}`, /지켜야 할 것을 보호하고/)
 
     const logo = readFileSync(new URL('../public/static/images/logo.png', import.meta.url))
     assert.equal(

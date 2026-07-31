@@ -174,16 +174,13 @@
   "metadata": {
     "title": "Aegifold Technologies",
     "author": "Aegifold Technologies",
-    "description": "지켜야 할 것을 보호하고, 깊은 이해와 실행·학습을 쌓아 복리를 만드는 기술 회사",
+    "description": "문제를 깊이 이해하고, 1원칙 사고와 실행에서 얻은 배움을 쌓는 기술 회사",
     "language": "ko-KR",
     "locale": "ko-KR",
     "siteUrl": "https://morgan-kimdw.github.io",
     "commentsProvider": "giscus",
     "searchProvider": "kbar",
-    "analyticsProviders": [
-      "googleAnalytics",
-      "umamiAnalytics"
-    ]
+    "analyticsProviders": ["googleAnalytics", "umamiAnalytics"]
   },
   "packageJson": {
     "packageManager": "yarn@4.18.0",
@@ -361,9 +358,7 @@
     "nextBuildManifest": {
       "path": ".next/build-manifest.json",
       "bytes": 510,
-      "pages": [
-        "/_app"
-      ]
+      "pages": ["/_app"]
     },
     "nextRoutesManifest": {
       "path": ".next/routes-manifest.json",
