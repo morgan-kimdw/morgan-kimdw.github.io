@@ -6,17 +6,8 @@ import process from 'node:process'
 const DEFAULT_BASE_URL = 'http://localhost:3100'
 const DEFAULT_OUTPUT = '.omx/evidence/G001/http-baseline.json'
 
-function decodeHtml(value) {
-  return value
-    ?.replaceAll('&amp;', '&')
-    .replaceAll('&quot;', '"')
-    .replaceAll('&#39;', "'")
-    .replaceAll('&lt;', '<')
-    .replaceAll('&gt;', '>')
-}
-
-function matchContent(html, pattern) {
-  return decodeHtml(html.match(pattern)?.[1]?.trim()) ?? null
+export function matchRawContent(html, pattern) {
+  return html.match(pattern)?.[1]?.trim() ?? null
 }
 
 function defaultRoutes() {
@@ -39,16 +30,16 @@ async function inspectRoute(baseUrl, route) {
     contentType: response.headers.get('content-type'),
     bytes: Buffer.byteLength(html),
     sha256: createHash('sha256').update(html).digest('hex'),
-    title: matchContent(html, /<title[^>]*>([\s\S]*?)<\/title>/i),
-    canonical: matchContent(
+    title: matchRawContent(html, /<title[^>]*>([\s\S]*?)<\/title>/i),
+    canonical: matchRawContent(
       html,
       /<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']+)["'][^>]*>/i
     ),
-    description: matchContent(
+    description: matchRawContent(
       html,
       /<meta[^>]+name=["']description["'][^>]+content=["']([^"']*)["'][^>]*>/i
     ),
-    h1: matchContent(html, /<h1[^>]*>([\s\S]*?)<\/h1>/i)?.replace(/<[^>]+>/g, '') ?? null,
+    h1: matchRawContent(html, /<h1[^>]*>([\s\S]*?)<\/h1>/i),
   }
 }
 
