@@ -11,19 +11,19 @@
   },
   "content": {
     "counts": {
-      "totalFiles": 61,
-      "mdxFiles": 61,
+      "totalFiles": 65,
+      "mdxFiles": 65,
       "markdownFiles": 0,
-      "explicitDraftTrue": 54,
-      "explicitDraftFalse": 7,
-      "mdxDraftTrue": 54,
-      "mdxDraftFalse": 7,
+      "explicitDraftTrue": 59,
+      "explicitDraftFalse": 6,
+      "mdxDraftTrue": 59,
+      "mdxDraftFalse": 6,
       "mdxMissingDraft": 0,
-      "publishedMdx": 7,
-      "publicCandidateMdx": 7,
+      "publishedMdx": 6,
+      "publicCandidateMdx": 6,
       "markdownPreservedOnly": 0,
       "missingDraftField": 0,
-      "gitTracked": 61,
+      "gitTracked": 65,
       "gitUntracked": 0
     },
     "untrackedPaths": [],
@@ -32,7 +32,6 @@
       "/blog/essay/founding-is-enduring-reality",
       "/blog/essay/thinking-about-fundamental",
       "/blog/language/fundamental-javascript",
-      "/blog/retrospect/retrospect-2024",
       "/blog/review/automation-for-work",
       "/blog/review/making-internal-platform-lumberjack"
     ],
@@ -42,7 +41,6 @@
       "/blog/essay/founding-is-enduring-reality",
       "/blog/essay/thinking-about-fundamental",
       "/blog/language/fundamental-javascript",
-      "/blog/retrospect/retrospect-2024",
       "/blog/review/automation-for-work",
       "/blog/review/making-internal-platform-lumberjack"
     ],
@@ -261,81 +259,75 @@
     "feedFiles": [
       {
         "path": "public/feed.xml",
-        "bytes": 4543,
-        "itemCount": 7,
+        "bytes": 4007,
+        "itemCount": 6,
         "urlCount": 0
       },
       {
         "path": "public/tags/ai/feed.xml",
-        "bytes": 2034,
+        "bytes": 2007,
         "itemCount": 2,
         "urlCount": 0
       },
       {
         "path": "public/tags/automation/feed.xml",
-        "bytes": 1167,
+        "bytes": 1145,
         "itemCount": 1,
         "urlCount": 0
       },
       {
         "path": "public/tags/context/feed.xml",
-        "bytes": 1386,
+        "bytes": 1359,
         "itemCount": 1,
         "urlCount": 0
       },
       {
         "path": "public/tags/essay/feed.xml",
-        "bytes": 2537,
+        "bytes": 2510,
         "itemCount": 3,
         "urlCount": 0
       },
       {
         "path": "public/tags/javascript/feed.xml",
-        "bytes": 1191,
+        "bytes": 1178,
         "itemCount": 1,
         "urlCount": 0
       },
       {
         "path": "public/tags/leadership/feed.xml",
-        "bytes": 2042,
+        "bytes": 2015,
         "itemCount": 2,
         "urlCount": 0
       },
       {
         "path": "public/tags/linguistics/feed.xml",
-        "bytes": 1192,
+        "bytes": 1179,
         "itemCount": 1,
         "urlCount": 0
       },
       {
         "path": "public/tags/ontology/feed.xml",
-        "bytes": 1387,
-        "itemCount": 1,
-        "urlCount": 0
-      },
-      {
-        "path": "public/tags/retrospect/feed.xml",
-        "bytes": 1173,
+        "bytes": 1360,
         "itemCount": 1,
         "urlCount": 0
       },
       {
         "path": "public/tags/review/feed.xml",
-        "bytes": 1716,
+        "bytes": 1678,
         "itemCount": 2,
         "urlCount": 0
       },
       {
         "path": "public/tags/startup/feed.xml",
-        "bytes": 1339,
+        "bytes": 1326,
         "itemCount": 1,
         "urlCount": 0
       }
     ],
     "searchJson": {
       "path": "public/search.json",
-      "bytes": 16946,
-      "documents": 7
+      "bytes": 15001,
+      "documents": 6
     },
     "tagData": {
       "path": "app/tag-data.json",
@@ -348,7 +340,6 @@
         "leadership",
         "linguistics",
         "ontology",
-        "retrospect",
         "review",
         "startup"
       ]
