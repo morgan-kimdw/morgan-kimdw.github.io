@@ -2,19 +2,19 @@
   "schemaVersion": 1,
   "root": "data/blog",
   "counts": {
-    "totalFiles": 61,
-    "mdxFiles": 61,
+    "totalFiles": 65,
+    "mdxFiles": 65,
     "markdownFiles": 0,
-    "explicitDraftTrue": 54,
-    "explicitDraftFalse": 7,
-    "mdxDraftTrue": 54,
-    "mdxDraftFalse": 7,
+    "explicitDraftTrue": 59,
+    "explicitDraftFalse": 6,
+    "mdxDraftTrue": 59,
+    "mdxDraftFalse": 6,
     "mdxMissingDraft": 0,
-    "publishedMdx": 7,
-    "publicCandidateMdx": 7,
+    "publishedMdx": 6,
+    "publicCandidateMdx": 6,
     "markdownPreservedOnly": 0,
     "missingDraftField": 0,
-    "gitTracked": 61,
+    "gitTracked": 65,
     "gitUntracked": 0
   },
   "untrackedPaths": [],
@@ -328,9 +328,18 @@
     {
       "path": "data/blog/essay/ai-does-not-replace-context.mdx",
       "extension": ".mdx",
-      "sha256": "7a0eb967fd8182a83f64a2cfbea8dffb09d87e55c33089ac946073f846d72d3b",
-      "bytes": 6745,
+      "sha256": "ff30869f7852b56665a1d02dcc0b8c6209ebe605a1faeeede126eef537aa8443",
+      "bytes": 6459,
       "draft": false,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/essay/ai-drug-that-ruins-group.mdx",
+      "extension": ".mdx",
+      "sha256": "546ff9436c4c7ba20e8dc31840ea19c02db91312ba8cbf1da55456b1df0059ec",
+      "bytes": 5798,
+      "draft": true,
       "gitTracked": true,
       "contentlayerEligible": true
     },
@@ -533,6 +542,33 @@
       "contentlayerEligible": true
     },
     {
+      "path": "data/blog/philosophy/arrogance-and-prejudice.mdx",
+      "extension": ".mdx",
+      "sha256": "5c3a5073c52a5598e80e64e3273eb665f2e75f4ece7afb17bbc5ce7d82364bd0",
+      "bytes": 3162,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/philosophy/end-of-substantial-era.mdx",
+      "extension": ".mdx",
+      "sha256": "72056c21ed7b3bd43aad848d2bedc6f5ccf49f91c44b058d6c8c84933280e62d",
+      "bytes": 3376,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
+      "path": "data/blog/philosophy/feedback.mdx",
+      "extension": ".mdx",
+      "sha256": "1482109d38ecafc211ec11663fe8480495fa657d4cfda615fe951acdccdfe8f6",
+      "bytes": 2911,
+      "draft": true,
+      "gitTracked": true,
+      "contentlayerEligible": true
+    },
+    {
       "path": "data/blog/retrospect/retrospect-2023.mdx",
       "extension": ".mdx",
       "sha256": "ecec04839393105bcc56420d082534f2d7007602a3d275bfdbff934a588945ed",
@@ -544,9 +580,9 @@
     {
       "path": "data/blog/retrospect/retrospect-2024.mdx",
       "extension": ".mdx",
-      "sha256": "971af4272e58d4538de577f01568461e96ecaaf5fed365a4829bbbb5af793e4d",
-      "bytes": 10127,
-      "draft": false,
+      "sha256": "83a5b2b6d9309b6f786ff473531f227b68aae7a1016fef18f03f074e7e7323ee",
+      "bytes": 7411,
+      "draft": true,
       "gitTracked": true,
       "contentlayerEligible": true
     },
