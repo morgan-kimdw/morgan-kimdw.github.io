@@ -1,12 +1,18 @@
 {
-  "ai": 2,
+  "ai": 3,
   "automation": 1,
-  "context": 1,
-  "essay": 3,
+  "company": 2,
+  "context": 2,
+  "essay": 7,
+  "execution": 1,
+  "feedback": 1,
   "javascript": 1,
-  "leadership": 2,
+  "leadership": 3,
   "linguistics": 1,
   "ontology": 1,
+  "philosophy": 2,
+  "product": 1,
+  "retrospect": 1,
   "review": 2,
   "startup": 1
 }

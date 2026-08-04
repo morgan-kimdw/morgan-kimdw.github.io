@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "capturedAt": "2026-07-31T10:59:43.686Z",
+  "capturedAt": "2026-08-04T16:25:05.581Z",
   "git": {
-    "branch": "HEAD",
-    "commit": "0763952c7b6b895b75059037cd811d0ba9c1fb0b"
+    "branch": "content/preserve-context-budget-insight",
+    "commit": "aba433aba8c5b68a35728cb73b1994cddcbf75d9"
   },
   "runtime": {
     "node": "v22.23.1",
@@ -14,13 +14,13 @@
       "totalFiles": 65,
       "mdxFiles": 65,
       "markdownFiles": 0,
-      "explicitDraftTrue": 59,
-      "explicitDraftFalse": 6,
-      "mdxDraftTrue": 59,
-      "mdxDraftFalse": 6,
+      "explicitDraftTrue": 54,
+      "explicitDraftFalse": 11,
+      "mdxDraftTrue": 54,
+      "mdxDraftFalse": 11,
       "mdxMissingDraft": 0,
-      "publishedMdx": 6,
-      "publicCandidateMdx": 6,
+      "publishedMdx": 11,
+      "publicCandidateMdx": 11,
       "markdownPreservedOnly": 0,
       "missingDraftField": 0,
       "gitTracked": 65,
@@ -29,18 +29,28 @@
     "untrackedPaths": [],
     "publishedBlogRoutes": [
       "/blog/essay/ai-does-not-replace-context",
+      "/blog/essay/ai-drug-that-ruins-group",
       "/blog/essay/founding-is-enduring-reality",
       "/blog/essay/thinking-about-fundamental",
       "/blog/language/fundamental-javascript",
+      "/blog/philosophy/arrogance-and-prejudice",
+      "/blog/philosophy/end-of-substantial-era",
+      "/blog/philosophy/feedback",
+      "/blog/retrospect/retrospect-2024",
       "/blog/review/automation-for-work",
       "/blog/review/making-internal-platform-lumberjack"
     ],
     "missingDraftPaths": [],
     "publicCandidateMdxRoutes": [
       "/blog/essay/ai-does-not-replace-context",
+      "/blog/essay/ai-drug-that-ruins-group",
       "/blog/essay/founding-is-enduring-reality",
       "/blog/essay/thinking-about-fundamental",
       "/blog/language/fundamental-javascript",
+      "/blog/philosophy/arrogance-and-prejudice",
+      "/blog/philosophy/end-of-substantial-era",
+      "/blog/philosophy/feedback",
+      "/blog/retrospect/retrospect-2024",
       "/blog/review/automation-for-work",
       "/blog/review/making-internal-platform-lumberjack"
     ],
@@ -178,7 +188,10 @@
     "siteUrl": "https://morgan-kimdw.github.io",
     "commentsProvider": "giscus",
     "searchProvider": "kbar",
-    "analyticsProviders": ["googleAnalytics", "umamiAnalytics"]
+    "analyticsProviders": [
+      "googleAnalytics",
+      "umamiAnalytics"
+    ]
   },
   "packageJson": {
     "packageManager": "yarn@4.18.0",
@@ -259,14 +272,14 @@
     "feedFiles": [
       {
         "path": "public/feed.xml",
-        "bytes": 4007,
-        "itemCount": 6,
+        "bytes": 6862,
+        "itemCount": 11,
         "urlCount": 0
       },
       {
         "path": "public/tags/ai/feed.xml",
-        "bytes": 2007,
-        "itemCount": 2,
+        "bytes": 2673,
+        "itemCount": 3,
         "urlCount": 0
       },
       {
@@ -276,15 +289,33 @@
         "urlCount": 0
       },
       {
+        "path": "public/tags/company/feed.xml",
+        "bytes": 1817,
+        "itemCount": 2,
+        "urlCount": 0
+      },
+      {
         "path": "public/tags/context/feed.xml",
-        "bytes": 1359,
-        "itemCount": 1,
+        "bytes": 2025,
+        "itemCount": 2,
         "urlCount": 0
       },
       {
         "path": "public/tags/essay/feed.xml",
-        "bytes": 2510,
-        "itemCount": 3,
+        "bytes": 4864,
+        "itemCount": 7,
+        "urlCount": 0
+      },
+      {
+        "path": "public/tags/execution/feed.xml",
+        "bytes": 1341,
+        "itemCount": 1,
+        "urlCount": 0
+      },
+      {
+        "path": "public/tags/feedback/feed.xml",
+        "bytes": 1218,
+        "itemCount": 1,
         "urlCount": 0
       },
       {
@@ -295,8 +326,8 @@
       },
       {
         "path": "public/tags/leadership/feed.xml",
-        "bytes": 2015,
-        "itemCount": 2,
+        "bytes": 2681,
+        "itemCount": 3,
         "urlCount": 0
       },
       {
@@ -308,6 +339,24 @@
       {
         "path": "public/tags/ontology/feed.xml",
         "bytes": 1360,
+        "itemCount": 1,
+        "urlCount": 0
+      },
+      {
+        "path": "public/tags/philosophy/feed.xml",
+        "bytes": 1820,
+        "itemCount": 2,
+        "urlCount": 0
+      },
+      {
+        "path": "public/tags/product/feed.xml",
+        "bytes": 1217,
+        "itemCount": 1,
+        "urlCount": 0
+      },
+      {
+        "path": "public/tags/retrospect/feed.xml",
+        "bytes": 1177,
         "itemCount": 1,
         "urlCount": 0
       },
@@ -326,20 +375,26 @@
     ],
     "searchJson": {
       "path": "public/search.json",
-      "bytes": 15001,
-      "documents": 6
+      "bytes": 22603,
+      "documents": 11
     },
     "tagData": {
       "path": "app/tag-data.json",
       "tags": [
         "ai",
         "automation",
+        "company",
         "context",
         "essay",
+        "execution",
+        "feedback",
         "javascript",
         "leadership",
         "linguistics",
         "ontology",
+        "philosophy",
+        "product",
+        "retrospect",
         "review",
         "startup"
       ]
@@ -349,13 +404,15 @@
     "nextBuildManifest": {
       "path": ".next/build-manifest.json",
       "bytes": 510,
-      "pages": ["/_app"]
+      "pages": [
+        "/_app"
+      ]
     },
     "nextRoutesManifest": {
       "path": ".next/routes-manifest.json",
       "bytes": 5384
     },
-    "publicAssetBytes": 13968543
+    "publicAssetBytes": 13973749
   },
   "environmentContract": {
     "nvmrc": "v24.18.0",
